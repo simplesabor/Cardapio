@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
+    <meta name="description" content="Lanches especiais e almoço caseiro preparados pela renomada Rosane. Terça a domingo, 17h-22h horário MS. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
+    <meta property="og:description" content="Lanches especiais toda noite e almoço caseiro no fim de semana. Delivery, retirada ou no local!">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Sunflower:wght@300;500;700&family=Roboto:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cor-grafite: #231F20;
+            --cor-preto: #231F20;
+            --cor-laranja: #F98917;
+            --cor-laranja-hover: #e07a10;
+            --cor-laranja-claro: #FFAD60;
+            --cor-bege: #f0d384;
+            --cor-cinza: #6b6b6b;
+            --cor-cinza-claro: #e5e5e5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--cor-grafite);
+            color: var(--cor-bege);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, .display-font {
+            font-family: 'Sunflower', cursive;
+            font-weight: 700;
+        }
+        
+        /* Header fixo */
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #231F20;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Hero section */
+        .hero-section {
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(135deg, rgba(35, 31, 32, 0.85) 0%, rgba(35, 31, 32, 0.8) 100%),
+                url('assets/background-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            padding-top: 50px;
+        }
+        
+        /* Botões */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cor-laranja) 0%, #b84a2e 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 104, 70, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 104, 70, 0.5);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+        }
+        
+        /* Cards */
+        .product-card {
+            background: rgba(43, 43, 43, 0.8);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(217, 104, 70, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cor-laranja);
+        }
+        
+        /* Carrinho */
+        #cart-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--cor-grafite);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        /* Seções */
+        section {
+            padding: 5rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            color: var(--cor-laranja);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Background fixo apenas para desktop */
+        @media (min-width: 769px) {
+            .hero-section {
+                background-attachment: fixed;
+            }
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .quantity-control button {
+            background: var(--cor-laranja);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-control button:hover {
+            background: var(--cor-laranja-hover);
+            transform: scale(1.1);
+        }
+        
+        .quantity-control span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        /* Texto circular ao redor da logo */
+        .logo-circle-container {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-circle-container {
+                width: 450px;
+                height: 450px;
+            }
+        }
+        
+        .circular-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .circular-text text {
+            font-family: 'Sunflower', cursive;
+            font-size: 11px;
+            font-weight: 600;
+            fill: var(--cor-laranja);
+            letter-spacing: 2px;
+        }
+        
+        @media (min-width: 768px) {
+            .circular-text text {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+        }
+        
+        .logo-center {
+            position: relative;
+            width: 220px;
+            height: auto;
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-center {
+                width: 300px;
+            }
+        }
+        
+        .hero-title {
+            font-family: 'Pacifico', cursive !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Fixo -->
+    <header class="header-fixed">
+        <nav class="container mx-auto px-2 md:px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <img src="assets/marca-dagua-transparente.png" alt="Simplê Sabor Ícone" class="h-9 md:h-11">
+                    <span style="font-family: 'Lily Script One', cursive; font-size: 1.5rem;">
+                        <span style="color: var(--cor-laranja);">Simplê</span><span style="color: var(--cor-bege);"> Sabor</span>
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
+                    <span class="text-xs">📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS</span>
+                    <span class="text-xs mt-1">🕐 Terça a Domingo • 17:00 às 22:00 horário MS</span>
+                </div>
+                
+                <div class="flex gap-4 items-center">
+                    <a href="tel:5567999496825" class="hover:text-orange-500 transition text-sm md:text-base" style="color: var(--cor-bege);">
+                        <i class="fab fa-whatsapp"></i> <span class="hidden md:inline">(67) 99949-6825</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 text-center">
+            <!-- Logo com texto circular -->
+            <div class="logo-circle-container">
+                <!-- SVG com texto circular SIMPLIFICADO -->
+                <svg class="circular-text" viewBox="0 0 200 200">
+                    <defs>
+                        <path id="circlePath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"/>
+                    </defs>
+                    <text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #F98917; letter-spacing: 3px; text-transform: uppercase;">
+                        <textPath href="#circlePath" startOffset="0%">
+                            SIMPLE SABOR • DO SIMPLES AO EXTRAORDINARIO •
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Logo no centro -->
+                <img src="assets/logo-hero-transparente.png" alt="Simplê Sabor Logo" class="logo-center">
+            </div>
+            
+            <h1 class="hero-title text-5xl md:text-7xl mb-8 leading-tight">
+                Feito com <span class="text-orange-500">Carinho</span><br>pela Rosane
+            </h1>
+            
+            <div class="bg-orange-600 bg-opacity-20 border-2 border-orange-500 rounded-2xl p-6 max-w-3xl mx-auto mb-8">
+                <p class="text-lg md:text-xl font-semibold mb-3">
+                    <i class="far fa-clock"></i> Terça a Domingo • 17:00 às 22:00 horário MS
+                </p>
+                <p class="text-gray-300 flex flex-wrap gap-4 justify-center items-center">
+                    <span><i class="fas fa-utensils"></i> Serve no Local</span>
+                    <span><i class="fas fa-motorcycle"></i> Delivery</span>
+                    <span><i class="fas fa-shopping-bag"></i> Retirada</span>
+                </p>
+            </div>
+            
+            <p class="text-lg mb-12 text-orange-400 italic">
+                📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS
+            </p>
+            
+            <!-- Chamada para os botões -->
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 display-font text-white">
+                    O que você vai querer hoje? 😋
+                </h2>
+                <p class="text-lg text-gray-300">
+                    Escolha sua categoria, role para baixo e monte seu pedido!
+                </p>
+            </div>
+            
+            <!-- Botões Principais -->
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button onclick="showSection('lanches')" class="btn-primary text-xl">
+                    <i class="fas fa-hotdog"></i> Cachorro Quente & Crepes
+                </button>
+                <button onclick="showSection('almoco')" class="btn-secondary text-xl">
+                    <i class="fas fa-drumstick-bite"></i> Almoço de Fim de Semana
+                </button>
+            </div>
+            
+            <p class="text-sm text-gray-400 mt-8">
+                <i class="fas fa-info-circle"></i> Almoço disponível apenas sábado e domingo (11:00 às 14:00) - Delivery ou Retirada<br>
+                <span class="text-orange-400">⚠️ Encomende com antecedência! Poucas unidades disponíveis para pedidos na hora.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção Lanches -->
+    <section id="lanches" class="hidden" style="background: var(--cor-preto); padding-top: 3rem;">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Cachorro Quente & Crepes</h2>
+            <p class="text-center text-gray-300 mb-8 text-lg">
+                Terça a Domingo • 17:00 às 22:00 horário MS | Serve no local, Delivery ou Retirada
+            </p>
+            
+            <!-- Cachorro Quente -->
+            <h3 class="text-3xl font-bold text-orange-500 mb-6 text-center">
+                <i class="fas fa-hotdog"></i> Cachorro Quente Prensado
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="lanches-grid"></div>
+            
+            <!-- Crepes -->
+            <h3 class="text-3xl font-bold text-green-400 mb-6 text-center">
+                <i class="fas fa-pizza-slice"></i> Crepes Abertos
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="crepes-grid"></div>
+            
+            <!-- Bebidas -->
+            <h3 class="text-3xl font-bold text-blue-400 mb-6 text-center">
+                <i class="fas fa-glass-water"></i> Bebidas
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="bebidas-grid"></div>
+        </div>
+    </section>
+
+    <!-- Seção Almoço -->
+    <section id="almoco" class="hidden" style="background: var(--cor-preto); padding-top: 3rem;">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Almoço de Fim de Semana</h2>
+            <p class="text-center text-gray-300 mb-4 text-lg">
+                Sábado e Domingo • 11:00 às 14:00
+            </p>
+            <p class="text-center text-orange-400 mb-8 font-semibold">
+                <i class="fas fa-motorcycle"></i> Delivery ou <i class="fas fa-shopping-bag"></i> Retirada
+            </p>
+            
+            <div class="bg-green-600 bg-opacity-20 border-2 border-green-500 rounded-2xl p-6 max-w-2xl mx-auto mb-12">
+                <p class="text-center text-lg">
+                    <i class="fas fa-heart"></i> Almoço caseiro preparado com carinho pela <strong>Rosane</strong>
+                </p>
+                <p class="text-center text-gray-300 mt-2 text-sm">
+                    Encomende com antecedência pelo WhatsApp!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="almoco-grid"></div>
+        </div>
+    </section>
+
+    <!-- Botão Carrinho Flutuante -->
+    <button id="cart-button" class="btn-primary" onclick="toggleCart()" style="display: none;">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="cart-badge">0</span>
+    </button>
+
+    <!-- Modal Carrinho -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-orange-500">
+                    <i class="fas fa-shopping-cart"></i> Seu Pedido
+                </h2>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-3xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="mb-6"></div>
+            
+            <div class="border-t border-gray-700 pt-6 mb-6">
+                <div class="flex justify-between text-2xl font-bold mb-4">
+                    <span>Total:</span>
+                    <span class="text-orange-500" id="cart-total">R$ 0,00</span>
+                </div>
+                
+                <label class="block text-sm font-semibold mb-2">Forma de Entrega:</label>
+                <select id="delivery-method" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-4" onchange="toggleDeliveryFields()">
+                    <option value="">Selecione...</option>
+                    <option value="retirada">🛍️ Retirada no Local</option>
+                    <option value="delivery">🏍️ Delivery</option>
+                    <option value="mesa">🍽️ Pedido na Mesa</option>
+                </select>
+                
+                <!-- Campos de Delivery -->
+                <div id="delivery-fields" style="display: none;">
+                    <label class="block text-sm font-semibold mb-2">Endereço para Entrega:</label>
+                    <input type="text" id="delivery-address" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Rua, número, bairro...">
+                    
+                    <label class="block text-sm font-semibold mb-2">Forma de Pagamento:</label>
+                    <select id="payment-method" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" onchange="toggleTrocoField()">
+                        <option value="">Selecione...</option>
+                        <option value="cartao">💳 Cartão</option>
+                        <option value="dinheiro">💵 Dinheiro</option>
+                    </select>
+                    
+                    <div id="troco-field" style="display: none;">
+                        <label class="block text-sm font-semibold mb-2">Troco para quanto?</label>
+                        <input type="text" id="troco-value" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Ex: R$ 50,00">
+                    </div>
+                </div>
+                
+                <!-- Campos de Mesa -->
+                <div id="mesa-fields" style="display: none;">
+                    <label class="block text-sm font-semibold mb-2">Número da Mesa:</label>
+                    <input type="text" id="mesa-number" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Ex: Mesa 5">
+                    
+                    <label class="block text-sm font-semibold mb-2">Nome (opcional):</label>
+                    <input type="text" id="mesa-name" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Seu nome...">
+                </div>
+                
+                <button onclick="sendOrder()" class="btn-primary w-full justify-center text-xl">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido via WhatsApp
+                </button>
+            </div>
+            
+            <button onclick="clearCart()" class="text-red-500 hover:text-red-400 w-full text-center">
+                <i class="fas fa-trash"></i> Limpar Carrinho
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Número do pedido (armazenado no localStorage)
+        function getNextOrderNumber() {
+            let orderNumber = localStorage.getItem('simplesabor_order_number');
+            if (!orderNumber) {
+                orderNumber = 1;
+            } else {
+                orderNumber = parseInt(orderNumber) + 1;
+            }
+            localStorage.setItem('simplesabor_order_number', orderNumber);
+            return orderNumber;
+        }
+        
+        // Adicionais disponíveis
+        const adicionais = [
+            { id: 'bacon', nome: 'Bacon', preco: 3.00 },
+            { id: 'calabresa', nome: 'Calabresa', preco: 3.00 },
+            { id: 'salada', nome: 'Salada', preco: 2.00 }
+        ];
+        
+        // Database de produtos
+        const produtos = {
+            lanches: [
+                { id: 'dog-tradicional', nome: 'Dog Tradicional', preco: 20.00, descricao: 'Pão, salsicha, molho vermelho, queijo e batata palha' },
+                { id: 'dog-calabresa', nome: 'Dog Calabresa', preco: 22.00, descricao: 'Pão, salsicha, molho vermelho, calabresa, queijo, milho e batata palha' },
+                { id: 'dog-frango', nome: 'Dog Frango', preco: 25.00, descricao: 'Pão, salsicha, molho de frango, queijo e batata palha' },
+                { id: 'dog-tudo', nome: 'Dog Tudo', preco: 30.00, descricao: 'Pão, 2 salsichas, molho de frango, bacon, milho, tomate, alface, presunto, queijo e batata palha' }
+            ],
+            crepes: [
+                { id: 'crepe-frango', nome: 'Frango e Queijo', preco: 20.00, descricao: 'Crepe aberto com frango desfiado e queijo derretido' },
+                { id: 'crepe-presunto', nome: 'Presunto e Queijo', preco: 20.00, descricao: 'Crepe aberto com presunto e queijo derretido' },
+                { id: 'crepe-carne-seca', nome: 'Carne Seca e Queijo', preco: 25.00, descricao: 'Crepe aberto com carne seca desfiada e queijo derretido' },
+                { id: 'crepe-chocolate', nome: 'Chocolate ao Leite', preco: 25.00, descricao: 'Crepe doce com chocolate ao leite cremoso' },
+                { id: 'crepe-romeu', nome: 'Romeu e Julieta', preco: 25.00, descricao: 'Crepe doce com goiabada e queijo' }
+            ],
+            bebidas: [
+                { id: 'agua', nome: 'Água', preco: 4.00, descricao: 'Água mineral com ou sem gás' },
+                { id: 'coca-350', nome: 'Coca-Cola/Zero 350ml', preco: 6.00, descricao: 'Coca-Cola ou Coca Zero lata 350ml' },
+                { id: 'fanta-350', nome: 'Fanta/Guaraná Antarctica', preco: 6.00, descricao: 'Fanta Laranja ou Guaraná Antarctica lata 350ml' },
+                { id: 'coca-600', nome: 'Coca-Cola 600ml', preco: 8.00, descricao: 'Coca-Cola garrafa 600ml' },
+                { id: 'coca-1l', nome: 'Coca-Cola 1 Litro', preco: 9.00, descricao: 'Coca-Cola garrafa 1 litro' }
+            ],
+            almoco: [
+                { id: 'frango-assado', nome: 'Frango Assado', preco: 0, descricao: 'Frango assado com arroz, feijão, salada e farofa' },
+                { id: 'carne-panela', nome: 'Carne de Panela', preco: 0, descricao: 'Carne de panela com arroz, feijão, salada e farofa' },
+                { id: 'peixe-frito', nome: 'Peixe Frito', preco: 0, descricao: 'Peixe frito com arroz, feijão, salada e farofa' }
+            ]
+        };
+        
+        let cart = [];
+        
+        // Renderizar produtos
+        function renderProducts() {
+            // Lanches
+            const lanchesGrid = document.getElementById('lanches-grid');
+            lanchesGrid.innerHTML = '';
+            produtos.lanches.forEach(produto => {
+                const card = createProductCard(produto, false);
+                lanchesGrid.appendChild(card);
+            });
+            
+            // Crepes
+            const crepesGrid = document.getElementById('crepes-grid');
+            crepesGrid.innerHTML = '';
+            produtos.crepes.forEach(produto => {
+                const card = createProductCard(produto, false);
+                crepesGrid.appendChild(card);
+            });
+            
+            // Bebidas
+            const bebidasGrid = document.getElementById('bebidas-grid');
+            bebidasGrid.innerHTML = '';
+            produtos.bebidas.forEach(produto => {
+                const card = createProductCard(produto, false);
+                bebidasGrid.appendChild(card);
+            });
+            
+            // Almoço
+            const almocoGrid = document.getElementById('almoco-grid');
+            almocoGrid.innerHTML = '';
+            produtos.almoco.forEach(produto => {
+                const card = createProductCard(produto, true);
+                almocoGrid.appendChild(card);
+            });
+        }
+        
+        // Criar card de produto
+        function createProductCard(produto, isAlmoco) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            const precoDisplay = produto.preco > 0 
+                ? `<p class="text-2xl font-bold text-orange-500 mb-4">R$ ${produto.preco.toFixed(2)}</p>`
+                : `<p class="text-xl font-semibold text-yellow-400 mb-4">Consulte o preço</p>`;
+            
+            card.innerHTML = `
+                <h4 class="text-xl font-bold mb-2 text-white">${produto.nome}</h4>
+                <p class="text-gray-400 mb-4">${produto.descricao}</p>
+                ${precoDisplay}
+                <button onclick="openAddModal('${produto.id}', '${produto.nome}', ${produto.preco}, ${isAlmoco})" class="btn-primary w-full justify-center">
+                    <i class="fas fa-plus"></i> Adicionar
+                </button>
+            `;
+            
+            return card;
+        }
+        
+        // Abrir modal de adicionar produto
+        function openAddModal(id, nome, preco, isAlmoco) {
+            // Verificar se é cachorro quente (para mostrar adicionais)
+            const isCachorroQuente = id.startsWith('dog-');
+            
+            const modal = document.createElement('div');
+            modal.id = 'add-modal';
+            modal.className = 'modal active';
+            
+            let adicionaisHTML = '';
+            if (isCachorroQuente) {
+                adicionaisHTML = `
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold mb-2">Adicionais:</label>
+                        ${adicionais.map(adicional => `
+                            <label class="flex items-center gap-2 mb-2 cursor-pointer">
+                                <input type="checkbox" value="${adicional.id}" class="adicional-checkbox" 
+                                       data-nome="${adicional.nome}" 
+                                       data-preco="${adicional.preco}"
+                                       onchange="updateModalTotal()">
+                                <span>${adicional.nome} (+R$ ${adicional.preco.toFixed(2)})</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            const precoDisplay = preco > 0 
+                ? `<p class="text-xl font-bold text-orange-500 mb-4">R$ <span id="modal-total">${preco.toFixed(2)}</span></p>`
+                : `<p class="text-lg text-yellow-400 mb-4">Consulte o preço</p>`;
+            
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-orange-500">${nome}</h3>
+                        <button onclick="closeAddModal()" class="text-gray-400 hover:text-white text-2xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    ${precoDisplay}
+                    
+                    ${adicionaisHTML}
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold mb-2">Quantidade:</label>
+                        <div class="quantity-control">
+                            <button onclick="changeModalQuantity(-1)">-</button>
+                            <span id="modal-quantity">1</span>
+                            <button onclick="changeModalQuantity(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">Observações:</label>
+                        <textarea id="modal-obs" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600" rows="3" placeholder="Observação: ex: Sem cebola..."></textarea>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button onclick="addToCart('${id}', '${nome}', ${preco}, ${isAlmoco})" class="btn-primary flex-1 justify-center">
+                            <i class="fas fa-check"></i> Adicionar
+                        </button>
+                        <button onclick="closeAddModal()" class="btn-secondary flex-1 justify-center">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        // Fechar modal de adicionar
+        function closeAddModal() {
+            const modal = document.getElementById('add-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        // Mudar quantidade na modal
+        function changeModalQuantity(delta) {
+            const quantityEl = document.getElementById('modal-quantity');
+            let quantity = parseInt(quantityEl.textContent);
+            quantity += delta;
+            if (quantity < 1) quantity = 1;
+            quantityEl.textContent = quantity;
+            updateModalTotal();
+        }
+        
+        // Atualizar total na modal
+        function updateModalTotal() {
+            const totalEl = document.getElementById('modal-total');
+            if (!totalEl) return;
+            
+            // Pegar preço base do texto
+            const basePreco = parseFloat(totalEl.textContent);
+            
+            // Calcular adicionais
+            let adicionaisTotal = 0;
+            const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
+            checkboxes.forEach(cb => {
+                adicionaisTotal += parseFloat(cb.dataset.preco);
+            });
+            
+            // Pegar quantidade
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent);
+            
+            // Atualizar total
+            const total = (basePreco + adicionaisTotal) * quantity;
+            totalEl.textContent = total.toFixed(2);
+        }
+        
+        // Adicionar ao carrinho
+        function addToCart(id, nome, preco, isAlmoco) {
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent);
+            const obs = document.getElementById('modal-obs').value.trim();
+            
+            // Pegar adicionais selecionados
+            let adicionaisSelecionados = [];
+            let precoAdicionais = 0;
+            const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
+            checkboxes.forEach(cb => {
+                adicionaisSelecionados.push(cb.dataset.nome);
+                precoAdicionais += parseFloat(cb.dataset.preco);
+            });
+            
+            // Adicionar ao carrinho
+            cart.push({
+                id: `${id}_${Date.now()}`,
+                produtoId: id,
+                nome: nome,
+                preco: preco + precoAdicionais,
+                precoBase: preco,
+                precoAdicionais: precoAdicionais,
+                quantity: quantity,
+                obs: obs,
+                adicionais: adicionaisSelecionados,
+                isAlmoco: isAlmoco
+            });
+            
+            updateCart();
+            closeAddModal();
+            document.getElementById('cart-button').style.display = 'flex';
+        }
+        
+        // Atualizar carrinho
+        function updateCart() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const total = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
+            
+            document.getElementById('cart-count').textContent = count;
+            document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+            
+            // Renderizar items
+            const cartItems = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-center text-gray-400">Carrinho vazio</p>';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => {
+                    // Montar descrição detalhada dos adicionais
+                    let adicionaisDetalhes = '';
+                    if (item.adicionais && item.adicionais.length > 0) {
+                        // Pegar os dados dos adicionais
+                        const adicionaisComPreco = item.adicionais.map(nomeAdicional => {
+                            const adicional = adicionais.find(a => a.nome === nomeAdicional);
+                            return adicional ? `+ ${adicional.nome}: R$ ${adicional.preco.toFixed(2)}` : `+ ${nomeAdicional}`;
+                        });
+                        adicionaisDetalhes = `
+                            <div class="text-sm mt-1 mb-1">
+                                <p class="text-gray-400">R$ ${item.precoBase.toFixed(2)} (base)</p>
+                                ${adicionaisComPreco.map(a => `<p class="text-yellow-400">${a}</p>`).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    return `
+                        <div class="bg-gray-800 p-4 rounded-lg mb-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-white">${item.nome}</h4>
+                                    ${adicionaisDetalhes}
+                                    ${item.preco > 0 ? `
+                                        <p class="text-sm font-semibold text-orange-400">
+                                            = R$ ${item.preco.toFixed(2)} x ${item.quantity} = R$ ${(item.preco * item.quantity).toFixed(2)}
+                                        </p>
+                                    ` : `
+                                        <p class="text-sm text-yellow-400">Preço a consultar</p>
+                                    `}
+                                    ${item.obs ? `
+                                        <p class="text-xs text-gray-500 mt-1">💬 ${item.obs}</p>
+                                    ` : ''}
+                                </div>
+                                <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-400">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+        
+        // Remover do carrinho
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            
+            if (cart.length === 0) {
+                document.getElementById('cart-button').style.display = 'none';
+            }
+        }
+        
+        // Limpar carrinho
+        function clearCart() {
+            if (confirm('Deseja limpar todo o carrinho?')) {
+                cart = [];
+                updateCart();
+                document.getElementById('cart-button').style.display = 'none';
+            }
+        }
+        
+        // Toggle carrinho
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('active');
+        }
+        
+        // Toggle delivery fields
+        function toggleDeliveryFields() {
+            const deliveryMethod = document.getElementById('delivery-method').value;
+            const deliveryFields = document.getElementById('delivery-fields');
+            const mesaFields = document.getElementById('mesa-fields');
+            
+            // Esconder todos os campos primeiro
+            deliveryFields.style.display = 'none';
+            mesaFields.style.display = 'none';
+            
+            if (deliveryMethod === 'delivery') {
+                deliveryFields.style.display = 'block';
+            } else if (deliveryMethod === 'mesa') {
+                mesaFields.style.display = 'block';
+            } else {
+                // Retirada - não precisa mostrar campos extras
+                // Limpar todos os campos
+                document.getElementById('delivery-address').value = '';
+                document.getElementById('payment-method').value = '';
+                document.getElementById('troco-value').value = '';
+                document.getElementById('troco-field').style.display = 'none';
+                document.getElementById('mesa-number').value = '';
+                document.getElementById('mesa-name').value = '';
+            }
+        }
+        
+        // Toggle troco field
+        function toggleTrocoField() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const trocoField = document.getElementById('troco-field');
+            
+            if (paymentMethod === 'dinheiro') {
+                trocoField.style.display = 'block';
+            } else {
+                trocoField.style.display = 'none';
+                document.getElementById('troco-value').value = '';
+            }
+        }
+        
+        // Enviar pedido
+        function sendOrder() {
+            const deliveryMethod = document.getElementById('delivery-method').value;
+            
+            if (!deliveryMethod) {
+                alert('Por favor, selecione a forma de entrega!');
+                return;
+            }
+            
+            // Validações para delivery
+            if (deliveryMethod === 'delivery') {
+                const address = document.getElementById('delivery-address').value.trim();
+                const payment = document.getElementById('payment-method').value;
+                
+                if (!address) {
+                    alert('Por favor, informe o endereço para entrega!');
+                    return;
+                }
+                
+                if (!payment) {
+                    alert('Por favor, selecione a forma de pagamento!');
+                    return;
+                }
+                
+                if (payment === 'dinheiro') {
+                    const troco = document.getElementById('troco-value').value.trim();
+                    if (!troco) {
+                        alert('Por favor, informe o troco!');
+                        return;
+                    }
+                }
+            }
+            
+            // Validações para mesa
+            if (deliveryMethod === 'mesa') {
+                const mesaNumber = document.getElementById('mesa-number').value.trim();
+                
+                if (!mesaNumber) {
+                    alert('Por favor, informe o número da mesa!');
+                    return;
+                }
+            }
+            
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            // Gerar número do pedido
+            const orderNumber = getNextOrderNumber();
+            
+            let message = '*PEDIDO SIMPLE SABOR*\n\n';
+            message += `*Pedido #${orderNumber}*\n\n`;
+            message += '*Feito pela Rosane com carinho!*\n\n';
+            message += '====================================\n\n';
+            
+            // Items
+            cart.forEach((item, index) => {
+                message += `${index + 1}. *${item.nome}*\n`;
+                if (item.adicionais && item.adicionais.length > 0) {
+                    message += `   + Adicionais: ${item.adicionais.join(', ')}\n`;
+                }
+                if (item.preco > 0) {
+                    message += `   Qtd: ${item.quantity} x R$ ${item.preco.toFixed(2)} = R$ ${(item.preco * item.quantity).toFixed(2)}\n`;
+                } else {
+                    message += `   Qtd: ${item.quantity} (consultar preço)\n`;
+                }
+                if (item.obs) {
+                    message += `   Obs: ${item.obs}\n`;
+                }
+                message += '\n';
+            });
+            
+            message += '====================================\n\n';
+            
+            // Total
+            const total = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
+            const hasConsulta = cart.some(item => item.preco === 0);
+            
+            if (hasConsulta) {
+                message += '*TOTAL:* R$ ' + total.toFixed(2) + ' + itens a consultar\n\n';
+            } else {
+                message += '*TOTAL:* R$ ' + total.toFixed(2) + '\n\n';
+            }
+            
+            // Delivery method
+            const deliveryText = {
+                'retirada': 'Retirada no Local',
+                'delivery': 'Delivery',
+                'mesa': 'Pedido na Mesa'
+            };
+            message += '*FORMA DE ENTREGA:* ' + deliveryText[deliveryMethod] + '\n';
+            
+            // Delivery details
+            if (deliveryMethod === 'delivery') {
+                const address = document.getElementById('delivery-address').value.trim();
+                const payment = document.getElementById('payment-method').value;
+                const paymentText = payment === 'cartao' ? 'Cartão' : 'Dinheiro';
+                
+                message += `*ENDEREÇO:* ${address}\n`;
+                message += `*PAGAMENTO:* ${paymentText}\n`;
+                
+                if (payment === 'dinheiro') {
+                    const troco = document.getElementById('troco-value').value.trim();
+                    message += `*TROCO PARA:* ${troco}\n`;
+                }
+            } else if (deliveryMethod === 'mesa') {
+                const mesaNumber = document.getElementById('mesa-number').value.trim();
+                const mesaName = document.getElementById('mesa-name').value.trim();
+                
+                message += `*MESA:* ${mesaNumber}\n`;
+                if (mesaName) {
+                    message += `*NOME:* ${mesaName}\n`;
+                }
+            } else {
+                message += '*RETIRAR EM:* Rua Cassilândia, 1068, Chapadão do Sul, MS\n';
+            }
+            
+            message += '\n====================================\n';
+            message += '*HORÁRIO:* Terça a domingo, 17:00 às 22:00 horário MS';
+            
+            // Encode and send
+            const whatsappUrl = `https://wa.me/5567999496825?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Limpar carrinho após enviar
+            setTimeout(() => {
+                if (confirm('Pedido enviado! Deseja limpar o carrinho?')) {
+                    cart = [];
+                    updateCart();
+                    document.getElementById('cart-button').style.display = 'none';
+                    toggleCart();
+                }
+            }, 1000);
+        }
+        
+        // Show section
+        function showSection(section) {
+            // Esconder todas as seções
+            document.getElementById('lanches').classList.add('hidden');
+            document.getElementById('almoco').classList.add('hidden');
+            
+            // Mostrar seção selecionada
+            if (section === 'lanches') {
+                document.getElementById('lanches').classList.remove('hidden');
+            } else {
+                document.getElementById('almoco').classList.remove('hidden');
+            }
+            
+            // Scroll suave para a seção
+            setTimeout(() => {
+                document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        // Initialize
+        renderProducts();
+        updateCart();
+    </script>
+
+</body>
+</html>
