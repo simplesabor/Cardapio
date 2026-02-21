@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
-    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">    
+    <title>Simplê Sabor, Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
+    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068 , Chapadão do Sul, MS.">    
     <!-- Open Graph -->
-    <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
+    <meta property="og:title" content="Simplê Sabor, Feito com Carinho pela Rosane">
     <meta property="og:description" content="Lanches especiais toda noite e almoço caseiro no fim de semana. Delivery, retirada ou no local!">
     <meta property="og:type" content="website">
     
@@ -84,7 +84,6 @@
             position: relative;
         }
         
-        /* Efeito de gradiente suave na parte inferior do hero */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -101,7 +100,6 @@
             z-index: 1;
         }
         
-        /* Botões */
         .btn-primary {
             background: linear-gradient(135deg, var(--cor-laranja) 0%, #b84a2e 100%);
             color: white;
@@ -146,7 +144,6 @@
             box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
         }
         
-        /* Cards */
         .product-card {
             background: rgba(43, 43, 43, 0.8);
             border-radius: 20px;
@@ -161,7 +158,6 @@
             border-color: var(--cor-laranja);
         }
         
-        /* Carrinho */
         #cart-button {
             position: fixed;
             bottom: 20px;
@@ -185,7 +181,6 @@
             font-weight: 700;
         }
         
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -215,7 +210,6 @@
             position: relative;
         }
         
-        /* Seções */
         section {
             padding: 5rem 1rem;
         }
@@ -241,7 +235,6 @@
                 font-size: 1rem;
             }
             
-            /* Background PERFEITO no mobile - com imagem nova */
             .hero-section-mobile {
                 background: linear-gradient(to bottom,
                     rgba(35, 31, 32, 0.3) 0%,
@@ -259,12 +252,10 @@
                 padding-bottom: 0px;
             }
             
-            /* Remove o ::before do mobile anterior */
             .hero-section::before {
                 display: none;
             }
             
-            /* Ajusta o ::after para mobile - gradiente mais suave */
             .hero-section::after {
                 height: 80px;
                 background: linear-gradient(to bottom, 
@@ -273,13 +264,11 @@
                     #231F20 100%);
             }
             
-            /* Garante que o conteúdo fique acima */
             .hero-section > .container {
                 position: relative;
                 z-index: 2;
             }
             
-            /* Logo menor no mobile */
             .logo-circle-container {
                 width: 280px;
                 height: 280px;
@@ -290,7 +279,6 @@
             }
         }
         
-        /* Background fixo apenas para desktop */
         @media (min-width: 769px) {
             .hero-section {
                 background-attachment: fixed;
@@ -327,7 +315,6 @@
             text-align: center;
         }
         
-        /* Texto circular ao redor da logo */
         .logo-circle-container {
             position: relative;
             width: 340px;
@@ -395,13 +382,11 @@
                          0 0 30px rgba(249, 137, 23, 0.4);
         }
         
-        /* Sombras nos textos principais - mais impactantes */
         h1, h2, .display-font {
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8),
                          1px 1px 2px rgba(0, 0, 0, 0.6);
         }
         
-        /* Box de informações mais transparente - destaca o background */
         .info-box {
             background: linear-gradient(135deg, rgba(249, 137, 23, 0.08) 0%, rgba(184, 74, 46, 0.08) 100%);
             backdrop-filter: blur(8px);
@@ -410,7 +395,6 @@
                         inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         
-        /* Ícones com destaque - mais leves */
         .icon-highlight {
             display: inline-flex;
             align-items: center;
@@ -428,7 +412,6 @@
             transform: translateY(-2px);
         }
         
-        /* Divisor decorativo */
         .decorative-divider {
             width: 60px;
             height: 3px;
@@ -436,7 +419,6 @@
             margin: 1rem auto;
         }
         
-        /* Badge de destaque */
         .badge-highlight {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -449,20 +431,17 @@
             transition: all 0.3s ease;
         }
         
-        /* Badge aberto (verde pulsante) */
         .badge-open {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
             animation: pulse 2s ease-in-out infinite;
         }
         
-        /* Badge fechado (vermelho) */
         .badge-closed {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
         }
         
-        /* Badge abre em breve (amarelo) */
         .badge-opens-soon {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
@@ -473,7 +452,6 @@
             50% { transform: scale(1.05); }
         }
         
-        /* Botão WhatsApp Flutuante - GRANDE E VISÍVEL */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -516,7 +494,6 @@
             }
         }
         
-        /* Texto ao lado do botão WhatsApp (desktop) */
         .whatsapp-text {
             position: absolute;
             right: 75px;
@@ -539,7 +516,6 @@
             right: 80px;
         }
         
-        /* Mobile - botão um pouco menor mas ainda visível */
         @media (max-width: 768px) {
             .whatsapp-float {
                 width: 60px;
@@ -550,7 +526,7 @@
             }
             
             .whatsapp-text {
-                display: none; /* Oculta texto no mobile */
+                display: none;
             }
         }
     </style>
@@ -569,8 +545,9 @@
                 </div>
                 
                 <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
-                    <span class="text-xs">📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS</span>
-                    <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário Brasília</span>                </div>
+                    <span class="text-xs">📍 Rua Cassilândia, 1068 , Chapadão do Sul, MS</span>
+                    <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário Brasília</span>
+                </div>
                 
                 <div class="flex gap-4 items-center">
                     <span id="header-status-badge" class="badge-highlight"></span>
@@ -579,7 +556,7 @@
         </nav>
     </header>
 
-    <!-- Botão WhatsApp Flutuante GRANDE e VISÍVEL -->
+    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5567999496825?text=Olá!%20Quero%20fazer%20um%20pedido%20no%20Simplê%20Sabor!%20😋" 
        target="_blank" 
        class="whatsapp-float"
@@ -591,9 +568,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container mx-auto px-4 text-center">
-            <!-- Logo com texto circular -->
             <div class="logo-circle-container">
-                <!-- SVG com texto circular SIMPLIFICADO -->
                 <svg class="circular-text" viewBox="0 0 200 200">
                     <defs>
                         <path id="circlePath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"/>
@@ -604,7 +579,6 @@
                         </textPath>
                     </text>
                 </svg>
-                <!-- Logo no centro -->
                 <img src="assets/logo-hero-transparente.png" alt="Simplê Sabor Logo" class="logo-center">
             </div>
             
@@ -612,15 +586,12 @@
                 Feito com <span class="text-orange-500">Carinho</span><br>pela Rosane
             </h1>
             
-            <!-- Badge de destaque (dinâmico) -->
             <div class="mb-6">
                 <span id="status-badge" class="badge-highlight"></span>
             </div>
             
-            <!-- Divisor decorativo -->
             <div class="decorative-divider"></div>
             
-            <!-- Box de informações melhorado -->
             <div class="info-box rounded-2xl p-6 max-w-3xl mx-auto mb-8">
                 <p class="text-lg md:text-xl font-semibold mb-4 flex items-center justify-center gap-2">
                     <i class="far fa-clock text-orange-400"></i>
@@ -628,7 +599,6 @@
                 </p>
                 <p class="text-sm text-orange-300 mb-4">horário de Brasília</p>
                 
-                <!-- Ícones com destaque -->
                 <div class="flex flex-wrap gap-3 justify-center">
                     <span class="icon-highlight">
                         <i class="fas fa-utensils text-orange-400"></i>
@@ -645,17 +615,14 @@
                 </div>
             </div>
             
-            <!-- Endereço com ícone -->
             <p class="text-lg mb-8 flex items-center justify-center gap-2">
                 <i class="fas fa-map-marker-alt text-orange-400"></i>
                 <span class="text-orange-400 font-semibold">Rua Cassilândia, 1068</span>
             </p>
             <p class="text-sm text-gray-400 mb-12">Chapadão do Sul, MS</p>
             
-            <!-- Divisor decorativo -->
             <div class="decorative-divider mb-8"></div>
             
-            <!-- Chamada para ação -->
             <div class="mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold mb-3 display-font text-white">
                     Faça seu pedido agora! 😋
@@ -675,21 +642,18 @@
                 Terça a Domingo • 19:00 às 23:30 horário de Brasília | Serve no local, Delivery ou Retirada
             </p>
             
-            <!-- Cachorro Quente -->
             <h3 class="text-3xl font-bold text-orange-500 mb-6 text-center">
                 <i class="fas fa-hotdog"></i> Cachorro Quente Prensado
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="lanches-grid"></div>
             
-            <!-- Crepes -->
             <h3 class="text-3xl font-bold text-green-400 mb-6 text-center">
                 <i class="fas fa-pizza-slice"></i> Crepes Abertos
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="crepes-grid"></div>
             
-            <!-- Bebidas -->
             <h3 class="text-3xl font-bold text-blue-400 mb-6 text-center">
                 <i class="fas fa-glass-water"></i> Bebidas
             </h3>
@@ -733,6 +697,12 @@
                 
                 <!-- Campos de Delivery -->
                 <div id="delivery-fields" style="display: none;">
+                    <label class="block text-sm font-semibold mb-2">Nome:</label>
+                    <input type="text" id="customer-name" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Seu nome">
+                    
+                    <label class="block text-sm font-semibold mb-2">Telefone:</label>
+                    <input type="tel" id="customer-phone" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="(67) 99999-9999">
+                    
                     <label class="block text-sm font-semibold mb-2">Endereço para Entrega:</label>
                     <input type="text" id="delivery-address" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Rua, número, bairro...">
                     
@@ -762,26 +732,23 @@
     </div>
 
     <script>
-        // Número do pedido (armazenado no localStorage)
         function getNextOrderNumber() {
             let orderNumber = localStorage.getItem('simplesabor_order_number');
             if (!orderNumber) {
                 orderNumber = 1;
             } else {
-                orderNumber = parseInt(orderNumber) + 1;
+                orderNumber = parseInt(orderNumber, 10) + 1;
             }
             localStorage.setItem('simplesabor_order_number', orderNumber);
             return orderNumber;
         }
         
-        // Adicionais disponíveis
         const adicionais = [
             { id: 'bacon', nome: 'Bacon', preco: 3.00 },
             { id: 'calabresa', nome: 'Calabresa', preco: 3.00 },
             { id: 'salada', nome: 'Salada', preco: 2.00 }
         ];
         
-        // Database de produtos
         const produtos = {
             lanches: [
                 { id: 'dog-tradicional', nome: 'Dog Tradicional', preco: 20.00, descricao: 'Pão, salsicha, molho vermelho, queijo e batata palha' },
@@ -807,9 +774,7 @@
         
         let cart = [];
         
-        // Renderizar produtos
         function renderProducts() {
-            // Lanches
             const lanchesGrid = document.getElementById('lanches-grid');
             lanchesGrid.innerHTML = '';
             produtos.lanches.forEach(produto => {
@@ -817,7 +782,6 @@
                 lanchesGrid.appendChild(card);
             });
             
-            // Crepes
             const crepesGrid = document.getElementById('crepes-grid');
             crepesGrid.innerHTML = '';
             produtos.crepes.forEach(produto => {
@@ -825,7 +789,6 @@
                 crepesGrid.appendChild(card);
             });
             
-            // Bebidas
             const bebidasGrid = document.getElementById('bebidas-grid');
             bebidasGrid.innerHTML = '';
             produtos.bebidas.forEach(produto => {
@@ -834,7 +797,6 @@
             });
         }
         
-        // Criar card de produto
         function createProductCard(produto, isAlmoco) {
             const card = document.createElement('div');
             card.className = 'product-card';
@@ -855,9 +817,7 @@
             return card;
         }
         
-        // Abrir modal de adicionar produto
         function openAddModal(id, nome, preco, isAlmoco) {
-            // Verificar se é cachorro quente (para mostrar adicionais)
             const isCachorroQuente = id.startsWith('dog-');
             
             const modal = document.createElement('div');
@@ -927,7 +887,6 @@
             document.body.appendChild(modal);
         }
         
-        // Fechar modal de adicionar
         function closeAddModal() {
             const modal = document.getElementById('add-modal');
             if (modal) {
@@ -935,45 +894,49 @@
             }
         }
         
-        // Mudar quantidade na modal
         function changeModalQuantity(delta) {
             const quantityEl = document.getElementById('modal-quantity');
-            let quantity = parseInt(quantityEl.textContent);
+            let quantity = parseInt(quantityEl.textContent, 10);
             quantity += delta;
             if (quantity < 1) quantity = 1;
             quantityEl.textContent = quantity;
             updateModalTotal();
         }
         
-        // Atualizar total na modal
         function updateModalTotal() {
             const totalEl = document.getElementById('modal-total');
             if (!totalEl) return;
             
-            // Pegar preço base do texto
-            const basePreco = parseFloat(totalEl.textContent);
+            const modalTitleEl = document.querySelector('#add-modal h3');
+            if (!modalTitleEl) return;
+
+            const modalTitle = modalTitleEl.textContent;
+            let basePreco = 0;
+
+            const todosProdutos = [...produtos.lanches, ...produtos.crepes, ...produtos.bebidas];
+            const produtoAtual = todosProdutos.find(p => p.nome === modalTitle);
+            if (produtoAtual) {
+                basePreco = parseFloat(produtoAtual.preco) || 0;
+            } else {
+                basePreco = parseFloat(totalEl.textContent) || 0;
+            }
             
-            // Calcular adicionais
             let adicionaisTotal = 0;
             const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
             checkboxes.forEach(cb => {
-                adicionaisTotal += parseFloat(cb.dataset.preco);
+                adicionaisTotal += parseFloat(cb.dataset.preco || 0);
             });
             
-            // Pegar quantidade
-            const quantity = parseInt(document.getElementById('modal-quantity').textContent);
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent, 10) || 1;
             
-            // Atualizar total
             const total = (basePreco + adicionaisTotal) * quantity;
             totalEl.textContent = total.toFixed(2);
         }
         
-        // Adicionar ao carrinho
         function addToCart(id, nome, preco, isAlmoco) {
-            const quantity = parseInt(document.getElementById('modal-quantity').textContent);
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent, 10);
             const obs = document.getElementById('modal-obs').value.trim();
             
-            // Pegar adicionais selecionados
             let adicionaisSelecionados = [];
             let precoAdicionais = 0;
             const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
@@ -982,7 +945,6 @@
                 precoAdicionais += parseFloat(cb.dataset.preco);
             });
             
-            // Adicionar ao carrinho
             cart.push({
                 id: `${id}_${Date.now()}`,
                 produtoId: id,
@@ -1001,7 +963,6 @@
             document.getElementById('cart-button').style.display = 'flex';
         }
         
-        // Atualizar carrinho
         function updateCart() {
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
             const total = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
@@ -1009,16 +970,13 @@
             document.getElementById('cart-count').textContent = count;
             document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
             
-            // Renderizar items
             const cartItems = document.getElementById('cart-items');
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="text-center text-gray-400">Carrinho vazio</p>';
             } else {
                 cartItems.innerHTML = cart.map((item, index) => {
-                    // Montar descrição detalhada dos adicionais
                     let adicionaisDetalhes = '';
                     if (item.adicionais && item.adicionais.length > 0) {
-                        // Pegar os dados dos adicionais
                         const adicionaisComPreco = item.adicionais.map(nomeAdicional => {
                             const adicional = adicionais.find(a => a.nome === nomeAdicional);
                             return adicional ? `+ ${adicional.nome}: R$ ${adicional.preco.toFixed(2)}` : `+ ${nomeAdicional}`;
@@ -1058,7 +1016,6 @@
             }
         }
         
-        // Remover do carrinho
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
@@ -1068,7 +1025,6 @@
             }
         }
         
-        // Limpar carrinho
         function clearCart() {
             if (confirm('Deseja limpar todo o carrinho?')) {
                 cart = [];
@@ -1077,54 +1033,77 @@
             }
         }
         
-        // Toggle carrinho
         function toggleCart() {
             document.getElementById('cart-modal').classList.toggle('active');
         }
         
-        // Toggle delivery fields
         function toggleDeliveryFields() {
-            const deliveryMethod = document.getElementById('delivery-method').value;
+            const deliveryMethodSelect = document.getElementById('delivery-method');
             const deliveryFields = document.getElementById('delivery-fields');
+            
+            if (!deliveryMethodSelect || !deliveryFields) return;
+            
+            const deliveryMethod = deliveryMethodSelect.value;
             
             if (deliveryMethod === 'delivery') {
                 deliveryFields.style.display = 'block';
             } else {
                 deliveryFields.style.display = 'none';
-                // Limpar campos
-                document.getElementById('delivery-address').value = '';
-                document.getElementById('payment-method').value = '';
-                document.getElementById('troco-value').value = '';
-                document.getElementById('troco-field').style.display = 'none';
+                
+                const customerName = document.getElementById('customer-name');
+                const customerPhone = document.getElementById('customer-phone');
+                const deliveryAddress = document.getElementById('delivery-address');
+                const paymentMethod = document.getElementById('payment-method');
+                const trocoValue = document.getElementById('troco-value');
+                const trocoField = document.getElementById('troco-field');
+                
+                if (customerName) customerName.value = '';
+                if (customerPhone) customerPhone.value = '';
+                if (deliveryAddress) deliveryAddress.value = '';
+                if (paymentMethod) paymentMethod.value = '';
+                if (trocoValue) trocoValue.value = '';
+                if (trocoField) trocoField.style.display = 'none';
             }
         }
         
-        // Toggle troco field
         function toggleTrocoField() {
-            const paymentMethod = document.getElementById('payment-method').value;
+            const paymentMethod = document.getElementById('payment-method')?.value || '';
             const trocoField = document.getElementById('troco-field');
+            
+            if (!trocoField) return;
             
             if (paymentMethod === 'dinheiro') {
                 trocoField.style.display = 'block';
             } else {
                 trocoField.style.display = 'none';
-                document.getElementById('troco-value').value = '';
+                const trocoValue = document.getElementById('troco-value');
+                if (trocoValue) trocoValue.value = '';
             }
         }
         
-        // Enviar pedido
         function sendOrder() {
-            const deliveryMethod = document.getElementById('delivery-method').value;
+            const deliveryMethod = document.getElementById('delivery-method')?.value || '';
             
             if (!deliveryMethod) {
                 alert('Por favor, selecione a forma de entrega!');
                 return;
             }
             
-            // Validações para delivery
             if (deliveryMethod === 'delivery') {
-                const address = document.getElementById('delivery-address').value.trim();
-                const payment = document.getElementById('payment-method').value;
+                const customerName = document.getElementById('customer-name')?.value.trim() || '';
+                const customerPhone = document.getElementById('customer-phone')?.value.trim() || '';
+                const address = document.getElementById('delivery-address')?.value.trim() || '';
+                const payment = document.getElementById('payment-method')?.value || '';
+                
+                if (!customerName) {
+                    alert('Por favor, informe seu nome!');
+                    return;
+                }
+                
+                if (!customerPhone) {
+                    alert('Por favor, informe seu telefone!');
+                    return;
+                }
                 
                 if (!address) {
                     alert('Por favor, informe o endereço para entrega!');
@@ -1137,7 +1116,7 @@
                 }
                 
                 if (payment === 'dinheiro') {
-                    const troco = document.getElementById('troco-value').value.trim();
+                    const troco = document.getElementById('troco-value')?.value.trim() || '';
                     if (!troco) {
                         alert('Por favor, informe o troco!');
                         return;
@@ -1150,7 +1129,6 @@
                 return;
             }
             
-            // Gerar número do pedido
             const orderNumber = getNextOrderNumber();
             
             let message = '*PEDIDO SIMPLE SABOR*\n\n';
@@ -1158,7 +1136,6 @@
             message += '*Feito pela Rosane com carinho!*\n\n';
             message += '====================================\n\n';
             
-            // Items
             cart.forEach((item, index) => {
                 message += `${index + 1}. *${item.nome}*\n`;
                 if (item.adicionais && item.adicionais.length > 0) {
@@ -1177,7 +1154,6 @@
             
             message += '====================================\n\n';
             
-            // Total
             const total = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
             const hasConsulta = cart.some(item => item.preco === 0);
             
@@ -1187,27 +1163,29 @@
                 message += '*TOTAL:* R$ ' + total.toFixed(2) + '\n\n';
             }
             
-            // Delivery method
             const deliveryText = {
-                'retirada': 'Retirada no Local',
-                'delivery': 'Delivery'
+                retirada: 'Retirada no Local',
+                delivery: 'Delivery'
             };
             message += '*FORMA DE ENTREGA:* ' + deliveryText[deliveryMethod] + '\n';
             
-            // Delivery details
             if (deliveryMethod === 'delivery') {
-                const address = document.getElementById('delivery-address').value.trim();
-                const payment = document.getElementById('payment-method').value;
+                const customerName = document.getElementById('customer-name')?.value.trim() || '';
+                const customerPhone = document.getElementById('customer-phone')?.value.trim() || '';
+                const address = document.getElementById('delivery-address')?.value.trim() || '';
+                const payment = document.getElementById('payment-method')?.value || '';
                 
                 let paymentText = 'Dinheiro';
                 if (payment === 'cartao') paymentText = 'Cartão';
                 if (payment === 'pix') paymentText = 'PIX';
                 
+                message += `*NOME:* ${customerName}\n`;
+                message += `*TELEFONE:* ${customerPhone}\n`;
                 message += `*ENDEREÇO:* ${address}\n`;
                 message += `*PAGAMENTO:* ${paymentText}\n`;
                 
                 if (payment === 'dinheiro') {
-                    const troco = document.getElementById('troco-value').value.trim();
+                    const troco = document.getElementById('troco-value')?.value.trim() || '';
                     message += `*TROCO PARA:* ${troco}\n`;
                 }
             } else {
@@ -1217,125 +1195,126 @@
             message += '\n====================================\n';
             message += '*HORÁRIO:* Terça a domingo, 19:00 às 23:30 horário de Brasília';
             
-            // Encode and send
             const whatsappUrl = `https://wa.me/5567999496825?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             
-            // Limpar carrinho após enviar
             setTimeout(() => {
                 if (confirm('Pedido enviado! Deseja limpar o carrinho?')) {
                     cart = [];
                     updateCart();
                     document.getElementById('cart-button').style.display = 'none';
-                    toggleCart();
+                    const cartModal = document.getElementById('cart-modal');
+                    if (cartModal.classList.contains('active')) {
+                        toggleCart();
+                    }
+                    
+                    const deliveryMethodSelect = document.getElementById('delivery-method');
+                    if (deliveryMethodSelect) deliveryMethodSelect.value = '';
+                    toggleDeliveryFields();
                 }
             }, 1000);
         }
         
-        // Initialize
         renderProducts();
         updateCart();
         
-        // Função para atualizar os badges de status (aberto/fechado), horário de Brasília
         function updateStatusBadge() {
             const heroStatus = document.getElementById('status-badge');
             const headerStatus = document.getElementById('header-status-badge');
             const now = new Date();
 
-        // Horário de Brasília (America/Sao_Paulo)
-        const formatter = new Intl.DateTimeFormat('pt-BR', {
-            timeZone: 'America/Sao_Paulo',
-            weekday: 'short',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        });
+            const formatter = new Intl.DateTimeFormat('pt-BR', {
+                timeZone: 'America/Sao_Paulo',
+                weekday: 'short',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            });
 
-        const parts = formatter.formatToParts(now);
-        const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '0', 10);
-        const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
+            const parts = formatter.formatToParts(now);
+            const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '0', 10);
+            const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
 
-        // Para dia da semana, melhor obter diretamente com weekday em formato numérico
-        const dayFormatter = new Intl.DateTimeFormat('en-US', {
-            timeZone: 'America/Sao_Paulo',
-            weekday: 'short'
-        });
-        const weekdayStr = dayFormatter.format(now);
+            const dayFormatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'America/Sao_Paulo',
+                weekday: 'short'
+            });
+            const weekdayStr = dayFormatter.format(now);
 
-        // Mapeamento JS-like, 0=domingo, 1=segunda, ..., 6=sábado
-        const dayMap = {
-            Sun: 0,
-            Mon: 1,
-            Tue: 2,
-            Wed: 3,
-            Thu: 4,
-            Fri: 5,
-            Sat: 6
-        };
-        const dayOfWeek = dayMap[weekdayStr];
+            const dayMap = {
+                Sun: 0,
+                Mon: 1,
+                Tue: 2,
+                Wed: 3,
+                Thu: 4,
+                Fri: 5,
+                Sat: 6
+            };
+            const dayOfWeek = dayMap[weekdayStr];
 
-        const currentMinutes = (hour * 60) + minute;
+            const currentMinutes = (hour * 60) + minute;
+            const openMinutes = 19 * 60;
+            const closeMinutes = (23 * 60) + 30;
 
-      // Horários de funcionamento, Terça a Domingo, 19:00 às 23:30
-      const openMinutes = 19 * 60;        // 19:00
-      const closeMinutes = (23 * 60) + 30; // 23:30
+            let badgeClass = '';
+            let heroText = '';
+            let headerText = '';
+            let isOpen = false;
 
-      let badgeClass = '';
-      let heroText = '';
-      let headerText = '';
-      let isOpen = false;
+            if (dayOfWeek === 1) {
+                badgeClass = 'badge-highlight badge-closed';
+                heroText = '🔴 Abrimos Terça às 19:00';
+                isOpen = false;
+            } else if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
+                badgeClass = 'badge-highlight badge-open';
+                heroText = '🟢 Fecha às 23:30';
+                isOpen = true;
+            } else if (currentMinutes < openMinutes) {
+                badgeClass = 'badge-highlight badge-opens-soon';
+                heroText = '🟡 Abre às 19:00';
+                isOpen = false;
+            } else {
+                if (dayOfWeek === 0) {
+                    badgeClass = 'badge-highlight badge-closed';
+                    heroText = '🔴 Abrimos Terça às 19:00';
+                    isOpen = false;
+                } else {
+                    badgeClass = 'badge-highlight badge-opens-soon';
+                    heroText = '🟡 Abre às 19:00';
+                    isOpen = false;
+                }
+            }
 
-      // Segunda-feira = fechado
-      if (dayOfWeek === 1) {
-         badgeClass = 'badge-highlight badge-closed';
-         heroText = '🔴 Abrimos Terça às 19:00';
-         isOpen = false;
-      }
-      // Terça a Domingo, aberto
-      else if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
-          badgeClass = 'badge-highlight badge-open';
-          heroText = '🟢 Fecha às 23:30';
-          isOpen = true;
-      }
-      // Fechado, mas abre hoje
-      else if (currentMinutes < openMinutes) {
-          badgeClass = 'badge-highlight badge-opens-soon';
-          heroText = '🟡 Abre às 19:00';
-          isOpen = false;
-      }
-      // Fechado após horário
-      else {
-          // Domingo após fechar, próxima abertura é terça
-          if (dayOfWeek === 0) {
-              badgeClass = 'badge-highlight badge-closed';
-              heroText = '🔴 Abrimos Terça às 19:00';
-              isOpen = false;
-          } else {
-              badgeClass = 'badge-highlight badge-opens-soon';
-              heroText = '🟡 Abre às 19:00';
-              isOpen = false;
-          }
-      }
+            headerText = isOpen ? '🟢 ABERTO' : '🔴 FECHADO';
 
-      // Header badge, apenas ABERTO ou FECHADO
-      headerText = isOpen ? '🟢 ABERTO' : '🔴 FECHADO';
+            if (heroStatus) {
+                heroStatus.className = badgeClass;
+                heroStatus.innerHTML = heroText;
+            }
 
-      if (heroStatus) {
-          heroStatus.className = badgeClass;
-          heroStatus.innerHTML = heroText;
-      }
-
-      if (headerStatus) {
-          headerStatus.className = isOpen ? 'badge-highlight badge-open' : 'badge-highlight badge-closed';
-          headerStatus.innerHTML = headerText;
-      }
-}
+            if (headerStatus) {
+                headerStatus.className = isOpen ? 'badge-highlight badge-open' : 'badge-highlight badge-closed';
+                headerStatus.innerHTML = headerText;
+            }
+        }
         
-        // Atualizar badges ao carregar a página
         updateStatusBadge();
-        
-        // Atualizar badges a cada 60 segundos
         setInterval(updateStatusBadge, 60000);
+
+        /* Máscara simples para telefone */
+        document.addEventListener('input', function (e) {
+            if (e.target && e.target.id === 'customer-phone') {
+                let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+                if (v.length <= 10) {
+                    v = v.replace(/(\d{2})(\d)/, '($1) $2')
+                         .replace(/(\d{4})(\d)/, '$1-$2');
+                } else {
+                    v = v.replace(/(\d{2})(\d)/, '($1) $2')
+                         .replace(/(\d{5})(\d)/, '$1-$2');
+                }
+                e.target.value = v;
+            }
+        });
     </script>
 
 </body>
