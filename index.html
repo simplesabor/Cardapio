@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
-    <meta name="description" content="Lanches especiais e almoço caseiro preparados pela renomada Rosane. Terça a domingo, 17h-22h horário MS. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
+    <meta name="description" content="Lanches especiais e almoço caseiro preparados pela renomada Rosane. Terça a domingo, 19h-23:30h horário BR. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
@@ -242,20 +242,20 @@
                 font-size: 1rem;
             }
             
-            /* Background PERFEITO no mobile - com imagem nova */
+            /* Background PERFEITO no mobile - com imagem nova LOCAL */
             .hero-section {
-                background: linear-gradient(to bottom,
+                background-image: linear-gradient(to bottom,
                     rgba(35, 31, 32, 0.3) 0%,
                     rgba(35, 31, 32, 0.6) 30%,
                     rgba(35, 31, 32, 0.8) 60%,
                     rgba(35, 31, 32, 0.95) 85%,
                     #231F20 100%
                 ),
-                url('https://www.genspark.ai/api/files/s/Q37wu1c9');
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-attachment: scroll;
+                url('assets/background-hero-mobile.jpg') !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
+                background-attachment: scroll !important;
                 min-height: 100vh;
                 padding-bottom: 0px;
             }
@@ -571,7 +571,7 @@
                 
                 <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
                     <span class="text-xs">📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS</span>
-                    <span class="text-xs mt-1">🕐 Terça a Domingo • 17:00 às 22:00 horário MS</span>
+                    <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário BR</span>
                 </div>
                 
                 <div class="flex gap-4 items-center">
@@ -626,9 +626,9 @@
             <div class="info-box rounded-2xl p-6 max-w-3xl mx-auto mb-8">
                 <p class="text-lg md:text-xl font-semibold mb-4 flex items-center justify-center gap-2">
                     <i class="far fa-clock text-orange-400"></i>
-                    <span>Terça a Domingo • 17:00 às 22:00</span>
+                    <span>Terça a Domingo • 19:00 às 23:30</span>
                 </p>
-                <p class="text-sm text-orange-300 mb-4">horário MS</p>
+                <p class="text-sm text-orange-300 mb-4">horário BR</p>
                 
                 <!-- Ícones com destaque -->
                 <div class="flex flex-wrap gap-3 justify-center">
@@ -674,7 +674,7 @@
         <div class="container mx-auto px-4">
             <h2 class="section-title">Cachorro Quente & Crepes</h2>
             <p class="text-center text-gray-300 mb-8 text-lg">
-                Terça a Domingo • 17:00 às 22:00 horário MS | Serve no local, Delivery ou Retirada
+                Terça a Domingo • 19:00 às 23:30 horário BR | Serve no local, Delivery ou Retirada
             </p>
             
             <!-- Cachorro Quente -->
@@ -789,7 +789,7 @@
                 { id: 'dog-tradicional', nome: 'Dog Tradicional', preco: 20.00, descricao: 'Pão, salsicha, molho vermelho, queijo e batata palha' },
                 { id: 'dog-calabresa', nome: 'Dog Calabresa', preco: 22.00, descricao: 'Pão, salsicha, molho vermelho, calabresa, queijo, milho e batata palha' },
                 { id: 'dog-frango', nome: 'Dog Frango', preco: 25.00, descricao: 'Pão, salsicha, molho de frango, queijo e batata palha' },
-                { id: 'dog-tudo', nome: 'Dog Tudo', preco: 30.00, descricao: 'Pão, 2 salsichas, molho de frango, bacon, milho, tomate, alface, presunto, queijo e batata palha' }
+                { id: 'dog-tudo', nome: 'Dog Tudo', preco: 30.00, descricao: 'Pão, salsichas, molho de frango, bacon, milho, tomate, alface, presunto, queijo e batata palha' }
             ],
             crepes: [
                 { id: 'crepe-frango', nome: 'Frango e Queijo', preco: 20.00, descricao: 'Crepe aberto com frango desfiado e queijo derretido' },
@@ -1244,7 +1244,7 @@
             const headerStatus = document.getElementById('header-status-badge');
             const now = new Date();
             
-            // Converter para horário de Mato Grosso do Sul (UTC-4)
+            // Converter para horário de Brasilia (UTC-3)
             const msOffset = -4 * 60; // MS está em UTC-4
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
             const msTime = new Date(utc + (msOffset * 60000));
@@ -1254,9 +1254,9 @@
             const minutes = msTime.getMinutes();
             const currentTime = hours + (minutes / 60);
             
-            // Horários de funcionamento: Terça (2) a Domingo (0), 17:00 às 22:00
-            const openHour = 17;
-            const closeHour = 22;
+            // Horários de funcionamento: Terça (2) a Domingo (0), 19:00 às 23:30
+            const openHour = 19;
+            const closeHour = 23:30;
             
             let badgeClass = '';
             let heroText = '';
@@ -1266,19 +1266,19 @@
             // Segunda-feira (1) = fechado
             if (dayOfWeek === 1) {
                 badgeClass = 'badge-highlight badge-closed';
-                heroText = '🔴 Abrimos Terça às 17:00 MS';
+                heroText = '🔴 Abrimos Terça às 19:00 BR';
                 isOpen = false;
             }
             // Terça a Domingo - ABERTO
             else if (currentTime >= openHour && currentTime < closeHour) {
                 badgeClass = 'badge-highlight badge-open';
-                heroText = '🟢 Fecha às 22:00 MS';
+                heroText = '🟢 Fecha às 23:30 BR';
                 isOpen = true;
             }
             // Fechado, mas abre hoje
             else if (currentTime < openHour) {
                 badgeClass = 'badge-highlight badge-opens-soon';
-                heroText = '🟡 Abre às 17:00 MS';
+                heroText = '🟡 Abre às 19:00 BR';
                 isOpen = false;
             }
             // Fechado, abre amanhã
@@ -1286,11 +1286,11 @@
                 // Se for domingo, abre terça
                 if (dayOfWeek === 0) {
                     badgeClass = 'badge-highlight badge-closed';
-                    heroText = '🔴 Abrimos Terça às 17:00 MS';
+                    heroText = '🔴 Abrimos Terça às 19:00 BR';
                     isOpen = false;
                 } else {
                     badgeClass = 'badge-highlight badge-opens-soon';
-                    heroText = '🟡 Abre às 17:00 MS';
+                    heroText = '🟡 Abre às 19:00 BR';
                     isOpen = false;
                 }
             }
