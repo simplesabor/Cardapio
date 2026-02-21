@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
-    <meta name="description" content="Lanches especiais e almoço caseiro preparados pela renomada Rosane. Terça a domingo, 19h-23:30h horário MS. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
+    <meta name="description" content="Lanches especiais e almoço caseiro preparados pela renomada Rosane. Terça a domingo, 19h-23:30h horário BR. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
@@ -1245,13 +1245,13 @@
             const now = new Date();
             
             // Converter para horário de Brasília (UTC-3)
-            const msOffset = -3 * 60; // BR está em UTC-3
+            const brOffset = -3 * 60; // BR está em UTC-3
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            const msTime = new Date(utc + (msOffset * 60000));
+            const brTime = new Date(utc + (brOffset * 60000));
             
-            const dayOfWeek = msTime.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
-            const hours = msTime.getHours();
-            const minutes = msTime.getMinutes();
+            const dayOfWeek = brTime.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+            const hours = brTime.getHours();
+            const minutes = brTime.getMinutes();
             const currentTime = hours + (minutes / 60);
             
             // Horários de funcionamento: Quarta (3) a Segunda (1), 19:00 às 23:30
