@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
-    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
+    <title>Simplê Sabor , Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
+    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068 , Chapadão do Sul, MS.">
     
-    <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
+    <meta property="og:title" content="Simplê Sabor , Feito com Carinho pela Rosane">
     <meta property="og:description" content="Lanches especiais toda noite e almoço caseiro no fim de semana. Delivery, retirada ou no local!">
     <meta property="og:type" content="website">
     
@@ -538,7 +538,7 @@
                 </div>
                 
                 <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
-                    <span class="text-xs">📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS</span>
+                    <span class="text-xs">📍 Rua Cassilândia, 1068 , Chapadão do Sul, MS</span>
                     <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário Brasília</span>
                 </div>
                 
@@ -731,17 +731,6 @@
     <script>
         const DELIVERY_FEE = 7.00;
 
-        function getNextOrderNumber() {
-            let orderNumber = localStorage.getItem('simplesabor_order_number');
-            if (!orderNumber) {
-                orderNumber = 1;
-            } else {
-                orderNumber = parseInt(orderNumber, 10) + 1;
-            }
-            localStorage.setItem('simplesabor_order_number', orderNumber);
-            return orderNumber;
-        }
-        
         const adicionais = [
             { id: 'bacon', nome: 'Bacon', preco: 3.00 },
             { id: 'calabresa', nome: 'Calabresa', preco: 3.00 },
@@ -1152,10 +1141,8 @@
                 return;
             }
             
-            const orderNumber = getNextOrderNumber();
-            
             let message = '*PEDIDO SIMPLE SABOR*\n\n';
-            message += `*Pedido #${orderNumber}*\n\n`;
+            message += '*Pedido Realizado. Obrigado!*\n\n';
             message += '*Feito pela Rosane com carinho!*\n\n';
             message += '====================================\n\n';
             
@@ -1164,7 +1151,7 @@
                 const precoUnitFinal = Number(item.preco || 0);
                 const totalItem = precoUnitFinal * qtd;
 
-                message += `${qtd}x ${item.nome}  ${formatBRL(precoUnitFinal)}\n`;
+                message += `${item.nome} ${qtd}x ${formatBRL(precoUnitFinal)}\n`;
 
                 if (item.adicionais && item.adicionais.length > 0) {
                     item.adicionais.forEach(nomeAdicional => {
@@ -1255,9 +1242,6 @@
             }, 1000);
         }
         
-        renderProducts();
-        updateCart();
-        
         function updateStatusBadge() {
             const heroStatus = document.getElementById('status-badge');
             const headerStatus = document.getElementById('header-status-badge');
@@ -1340,15 +1324,18 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCart();
+            updateStatusBadge();
+            
             const phoneInput = document.getElementById('customer-phone');
             if (phoneInput) {
                 phoneInput.addEventListener('input', (e) => applyPhoneMask(e.target));
                 phoneInput.addEventListener('blur', (e) => applyPhoneMask(e.target));
             }
+            
+            setInterval(updateStatusBadge, 60000);
         });
-        
-        updateStatusBadge();
-        setInterval(updateStatusBadge, 60000);
     </script>
 
 </body>
