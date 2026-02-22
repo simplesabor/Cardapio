@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <title>Simplê Sabor, Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
-    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068, Chapadão do Sul, MS.">    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Simplê Sabor, Feito com Carinho pela Rosane">
+    <title>Simplê Sabor - Feito com Carinho pela Rosane | Chapadão do Sul, MS</title>
+    <meta name="description" content="Lanches especiais preparados pela Rosane. Terça a domingo, 19h às 23h30, horário de Brasília. Serve no local, delivery e retirada. Rua Cassilândia, 1068 - Chapadão do Sul, MS.">
+    
+    <meta property="og:title" content="Simplê Sabor - Feito com Carinho pela Rosane">
     <meta property="og:description" content="Lanches especiais toda noite e almoço caseiro no fim de semana. Delivery, retirada ou no local!">
     <meta property="og:type" content="website">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Sunflower:wght@300;500;700&family=Roboto:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
     <style>
@@ -89,8 +85,8 @@
             left: 0;
             right: 0;
             height: 150px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
+            background: linear-gradient(to bottom,
+                transparent 0%,
                 rgba(35, 31, 32, 0.5) 20%,
                 rgba(35, 31, 32, 0.85) 50%,
                 #231F20 100%);
@@ -256,8 +252,8 @@
             
             .hero-section::after {
                 height: 80px;
-                background: linear-gradient(to bottom, 
-                    transparent 0%, 
+                background: linear-gradient(to bottom,
+                    transparent 0%,
                     rgba(35, 31, 32, 0.7) 40%,
                     #231F20 100%);
             }
@@ -542,7 +538,7 @@
                 </div>
                 
                 <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
-                    <span class="text-xs">📍 Rua Cassilândia, 1068, Chapadão do Sul, MS</span>
+                    <span class="text-xs">📍 Rua Cassilândia, 1068 - Chapadão do Sul, MS</span>
                     <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário Brasília</span>
                 </div>
                 
@@ -553,8 +549,8 @@
         </nav>
     </header>
 
-    <a href="https://wa.me/5567999496825?text=Olá!%20Quero%20fazer%20um%20pedido%20no%20Simplê%20Sabor!%20😋" 
-       target="_blank" 
+    <a href="https://wa.me/5567999496825?text=Olá!%20Quero%20fazer%20um%20pedido%20no%20Simplê%20Sabor!%20😋"
+       target="_blank"
        class="whatsapp-float"
        title="Chamar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
@@ -675,23 +671,23 @@
             <div id="cart-items" class="mb-6"></div>
             
             <div class="border-t border-gray-700 pt-6 mb-6">
-                <div class="mb-4 space-y-2">
-                    <div class="flex justify-between text-lg">
+                <div class="space-y-2 mb-4 text-lg">
+                    <div class="flex justify-between">
                         <span>Subtotal:</span>
                         <span id="cart-subtotal">R$ 0,00</span>
                     </div>
-                    <div class="flex justify-between text-lg">
+                    <div class="flex justify-between">
                         <span>Taxa de entrega:</span>
                         <span id="cart-delivery-fee">R$ 0,00</span>
                     </div>
-                    <div class="border-t border-gray-700 pt-2 flex justify-between text-2xl font-bold">
+                    <div class="flex justify-between text-2xl font-bold border-t border-gray-700 pt-3">
                         <span>Total:</span>
                         <span class="text-orange-500" id="cart-total">R$ 0,00</span>
                     </div>
                 </div>
                 
                 <label class="block text-sm font-semibold mb-2">Forma de Entrega:</label>
-                <select id="delivery-method" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-4" onchange="toggleDeliveryFields()">
+                <select id="delivery-method" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-4" onchange="toggleDeliveryFields(); updateCart();">
                     <option value="">Selecione...</option>
                     <option value="retirada">🛍️ Retirada no Local</option>
                     <option value="delivery">🏍️ Delivery</option>
@@ -699,7 +695,7 @@
                 
                 <div id="delivery-fields" style="display: none;">
                     <label class="block text-sm font-semibold mb-2">Nome:</label>
-                    <input type="text" id="customer-name" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Seu nome">
+                    <input type="text" id="customer-name" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="Seu nome completo">
                     
                     <label class="block text-sm font-semibold mb-2">Telefone:</label>
                     <input type="tel" id="customer-phone" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 mb-3" placeholder="(67) 99999-9999">
@@ -767,18 +763,28 @@
                 { id: 'crepe-romeu', nome: 'Romeu e Julieta', preco: 25.00, descricao: 'Crepe doce com goiabada e queijo' }
             ],
             bebidas: [
-                { id: 'Agua', nome: 'Água', preco: 4.00, descricao: 'Água mineral com ou sem gás' },
-                { id: 'Coca-mini', nome: 'Coca-Cola Mini 220ml', preco: 5.00, descricao: 'Coca-Cola lata mini 220ml' },
-                { id: 'Fanta-mini', nome: 'Fanta Mini 220ml', preco: 5.00, descricao: 'Fanta Laranja lata mini 220ml' },
-                { id: 'Coca-350', nome: 'Coca-Cola/Zero 350ml', preco: 6.00, descricao: 'Coca-Cola ou Coca Zero lata 350ml' },
-                { id: 'Fanta-350', nome: 'Fanta 350ml', preco: 6.00, descricao: 'Fanta Laranja lata 350ml' },
-                { id: 'Guaraná Antarctica-350', nome: 'Guaraná Antarctica 350ml', preco: 6.00, descricao: 'Guaraná Antarctica lata 350ml' },
-                { id: 'Coca-600', nome: 'Coca-Cola 600ml', preco: 8.00, descricao: 'Coca-Cola garrafa 600ml' },
-                { id: 'Coca-1l', nome: 'Coca-Cola 1 Litro', preco: 9.00, descricao: 'Coca-Cola garrafa 1 litro (INDISPONÍVEL P/ DELIVERY)' }
+                { id: 'agua', nome: 'Água', preco: 4.00, descricao: 'Água mineral com ou sem gás' },
+                { id: 'coca-mini-220', nome: 'Coca-Cola Mini 220ml', preco: 5.00, descricao: 'Coca-Cola lata mini 220ml' },
+                { id: 'fanta-mini-220', nome: 'Fanta Mini 220ml', preco: 5.00, descricao: 'Fanta lata mini 220ml' },
+                { id: 'coca-350', nome: 'Coca-Cola/Zero 350ml', preco: 6.00, descricao: 'Coca-Cola ou Coca Zero lata 350ml' },
+                { id: 'fanta-350', nome: 'Fanta/Guaraná Antarctica', preco: 6.00, descricao: 'Fanta Laranja ou Guaraná Antarctica lata 350ml' },
+                { id: 'coca-600', nome: 'Coca-Cola 600ml', preco: 8.00, descricao: 'Coca-Cola garrafa 600ml' },
+                { id: 'coca-1l', nome: 'Coca-Cola 1 Litro', preco: 9.00, descricao: 'Coca-Cola garrafa 1 litro' }
             ]
         };
         
         let cart = [];
+        let currentModalBasePrice = 0;
+        
+        function formatBRL(value) {
+            return `R$ ${Number(value).toFixed(2).replace('.', ',')}`;
+        }
+
+        function getSelectedDeliveryFee() {
+            const deliveryMethodEl = document.getElementById('delivery-method');
+            const method = deliveryMethodEl ? deliveryMethodEl.value : '';
+            return method === 'delivery' ? DELIVERY_FEE : 0;
+        }
         
         function renderProducts() {
             const lanchesGrid = document.getElementById('lanches-grid');
@@ -807,15 +813,15 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             
-            const precoDisplay = produto.preco > 0 
-                ? `<p class="text-2xl font-bold text-orange-500 mb-4">R$ ${produto.preco.toFixed(2)}</p>`
+            const precoDisplay = produto.preco > 0
+                ? `<p class="text-2xl font-bold text-orange-500 mb-4">${formatBRL(produto.preco)}</p>`
                 : `<p class="text-xl font-semibold text-yellow-400 mb-4">Consulte o preço</p>`;
             
             card.innerHTML = `
                 <h4 class="text-xl font-bold mb-2 text-white">${produto.nome}</h4>
                 <p class="text-gray-400 mb-4">${produto.descricao}</p>
                 ${precoDisplay}
-                <button onclick="openAddModal('${produto.id}', '${produto.nome}', ${produto.preco}, ${isAlmoco})" class="btn-primary w-full justify-center">
+                <button onclick="openAddModal('${produto.id}', '${produto.nome.replace(/'/g, "\\'")}', ${produto.preco}, ${isAlmoco})" class="btn-primary w-full justify-center">
                     <i class="fas fa-plus"></i> Adicionar
                 </button>
             `;
@@ -825,6 +831,7 @@
         
         function openAddModal(id, nome, preco, isAlmoco) {
             const isCachorroQuente = id.startsWith('dog-');
+            currentModalBasePrice = Number(preco || 0);
             
             const modal = document.createElement('div');
             modal.id = 'add-modal';
@@ -837,19 +844,19 @@
                         <label class="block text-sm font-semibold mb-2">Adicionais:</label>
                         ${adicionais.map(adicional => `
                             <label class="flex items-center gap-2 mb-2 cursor-pointer">
-                                <input type="checkbox" value="${adicional.id}" class="adicional-checkbox" 
-                                       data-nome="${adicional.nome}" 
+                                <input type="checkbox" value="${adicional.id}" class="adicional-checkbox"
+                                       data-nome="${adicional.nome}"
                                        data-preco="${adicional.preco}"
                                        onchange="updateModalTotal()">
-                                <span>${adicional.nome} (+R$ ${adicional.preco.toFixed(2)})</span>
+                                <span>${adicional.nome} (+${formatBRL(adicional.preco)})</span>
                             </label>
                         `).join('')}
                     </div>
                 `;
             }
             
-            const precoDisplay = preco > 0 
-                ? `<p class="text-xl font-bold text-orange-500 mb-4">R$ <span id="modal-total">${preco.toFixed(2)}</span></p>`
+            const precoDisplay = preco > 0
+                ? `<p class="text-xl font-bold text-orange-500 mb-4">Total do item: <span id="modal-total">${formatBRL(preco)}</span></p>`
                 : `<p class="text-lg text-yellow-400 mb-4">Consulte o preço</p>`;
             
             modal.innerHTML = `
@@ -861,6 +868,7 @@
                         </button>
                     </div>
                     
+                    <p class="text-sm text-gray-300 mb-2">Valor base: ${preco > 0 ? formatBRL(preco) : 'Consultar'}</p>
                     ${precoDisplay}
                     
                     ${adicionaisHTML}
@@ -880,7 +888,7 @@
                     </div>
                     
                     <div class="flex gap-3">
-                        <button onclick="addToCart('${id}', '${nome}', ${preco}, ${isAlmoco})" class="btn-primary flex-1 justify-center">
+                        <button onclick="addToCart('${id}', '${nome.replace(/'/g, "\\'")}', ${preco}, ${isAlmoco})" class="btn-primary flex-1 justify-center">
                             <i class="fas fa-check"></i> Adicionar
                         </button>
                         <button onclick="closeAddModal()" class="btn-secondary flex-1 justify-center">
@@ -898,6 +906,7 @@
             if (modal) {
                 modal.remove();
             }
+            currentModalBasePrice = 0;
         }
         
         function changeModalQuantity(delta) {
@@ -913,29 +922,15 @@
             const totalEl = document.getElementById('modal-total');
             if (!totalEl) return;
             
-            const modalTitleEl = document.querySelector('#add-modal h3');
-            if (!modalTitleEl) return;
-
-            const modalTitle = modalTitleEl.textContent;
-            let basePreco = 0;
-
-            const todosProdutos = [...produtos.lanches, ...produtos.crepes, ...produtos.bebidas];
-            const produtoAtual = todosProdutos.find(p => p.nome === modalTitle);
-            if (produtoAtual) {
-                basePreco = parseFloat(produtoAtual.preco) || 0;
-            } else {
-                basePreco = parseFloat(totalEl.textContent) || 0;
-            }
-            
             let adicionaisTotal = 0;
             const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
             checkboxes.forEach(cb => {
-                adicionaisTotal += parseFloat(cb.dataset.preco || 0);
+                adicionaisTotal += Number(cb.dataset.preco || 0);
             });
             
-            const quantity = parseInt(document.getElementById('modal-quantity').textContent, 10) || 1;
-            const total = (basePreco + adicionaisTotal) * quantity;
-            totalEl.textContent = total.toFixed(2);
+            const quantity = parseInt(document.getElementById('modal-quantity').textContent, 10);
+            const total = (currentModalBasePrice + adicionaisTotal) * quantity;
+            totalEl.textContent = formatBRL(total);
         }
         
         function addToCart(id, nome, preco, isAlmoco) {
@@ -947,15 +942,15 @@
             const checkboxes = document.querySelectorAll('.adicional-checkbox:checked');
             checkboxes.forEach(cb => {
                 adicionaisSelecionados.push(cb.dataset.nome);
-                precoAdicionais += parseFloat(cb.dataset.preco);
+                precoAdicionais += Number(cb.dataset.preco || 0);
             });
             
             cart.push({
                 id: `${id}_${Date.now()}`,
                 produtoId: id,
                 nome: nome,
-                preco: preco + precoAdicionais,
-                precoBase: preco,
+                preco: Number(preco) + precoAdicionais,
+                precoBase: Number(preco),
                 precoAdicionais: precoAdicionais,
                 quantity: quantity,
                 obs: obs,
@@ -969,17 +964,15 @@
         }
         
         function updateCart() {
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
-
-            const deliveryMethod = document.getElementById('delivery-method')?.value || '';
-            const deliveryFee = deliveryMethod === 'delivery' ? DELIVERY_FEE : 0;
+            const count = cart.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+            const subtotal = cart.reduce((sum, item) => sum + (Number(item.preco) * Number(item.quantity)), 0);
+            const deliveryFee = getSelectedDeliveryFee();
             const total = subtotal + deliveryFee;
             
             document.getElementById('cart-count').textContent = count;
-            document.getElementById('cart-subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
-            document.getElementById('cart-delivery-fee').textContent = `R$ ${deliveryFee.toFixed(2)}`;
-            document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+            document.getElementById('cart-subtotal').textContent = formatBRL(subtotal);
+            document.getElementById('cart-delivery-fee').textContent = formatBRL(deliveryFee);
+            document.getElementById('cart-total').textContent = formatBRL(total);
             
             const cartItems = document.getElementById('cart-items');
             if (cart.length === 0) {
@@ -990,25 +983,31 @@
                     if (item.adicionais && item.adicionais.length > 0) {
                         const adicionaisComPreco = item.adicionais.map(nomeAdicional => {
                             const adicional = adicionais.find(a => a.nome === nomeAdicional);
-                            return adicional ? `+ ${adicional.nome}: R$ ${adicional.preco.toFixed(2)}` : `+ ${nomeAdicional}`;
+                            return adicional ? `+ ${adicional.nome}: ${formatBRL(adicional.preco)}` : `+ ${nomeAdicional}`;
                         });
                         adicionaisDetalhes = `
                             <div class="text-sm mt-1 mb-1">
-                                <p class="text-gray-400">R$ ${item.precoBase.toFixed(2)} (base)</p>
+                                <p class="text-gray-400">${formatBRL(item.precoBase)} (base)</p>
                                 ${adicionaisComPreco.map(a => `<p class="text-yellow-400">${a}</p>`).join('')}
+                            </div>
+                        `;
+                    } else {
+                        adicionaisDetalhes = `
+                            <div class="text-sm mt-1 mb-1">
+                                <p class="text-gray-400">${formatBRL(item.precoBase)} (base)</p>
                             </div>
                         `;
                     }
                     
                     return `
                         <div class="bg-gray-800 p-4 rounded-lg mb-3">
-                            <div class="flex justify-between items-start mb-2">
+                            <div class="flex justify-between items-start mb-2 gap-3">
                                 <div class="flex-1">
                                     <h4 class="font-bold text-white">${item.nome}</h4>
                                     ${adicionaisDetalhes}
                                     ${item.preco > 0 ? `
                                         <p class="text-sm font-semibold text-orange-400">
-                                            = R$ ${item.preco.toFixed(2)} x ${item.quantity} = R$ ${(item.preco * item.quantity).toFixed(2)}
+                                            Total do item: ${formatBRL(item.preco * item.quantity)} (${item.quantity}x ${formatBRL(item.preco)})
                                         </p>
                                     ` : `
                                         <p class="text-sm text-yellow-400">Preço a consultar</p>
@@ -1046,52 +1045,41 @@
         
         function toggleCart() {
             document.getElementById('cart-modal').classList.toggle('active');
+            updateCart();
         }
         
         function toggleDeliveryFields() {
-            const deliveryMethodSelect = document.getElementById('delivery-method');
+            const deliveryMethod = document.getElementById('delivery-method').value;
             const deliveryFields = document.getElementById('delivery-fields');
-            
-            if (!deliveryMethodSelect || !deliveryFields) return;
-            
-            const deliveryMethod = deliveryMethodSelect.value;
             
             if (deliveryMethod === 'delivery') {
                 deliveryFields.style.display = 'block';
             } else {
                 deliveryFields.style.display = 'none';
-                
-                const customerName = document.getElementById('customer-name');
-                const customerPhone = document.getElementById('customer-phone');
-                const deliveryAddress = document.getElementById('delivery-address');
-                const paymentMethod = document.getElementById('payment-method');
-                const trocoValue = document.getElementById('troco-value');
-                const trocoField = document.getElementById('troco-field');
-                
-                if (customerName) customerName.value = '';
-                if (customerPhone) customerPhone.value = '';
-                if (deliveryAddress) deliveryAddress.value = '';
-                if (paymentMethod) paymentMethod.value = '';
-                if (trocoValue) trocoValue.value = '';
-                if (trocoField) trocoField.style.display = 'none';
+                document.getElementById('customer-name').value = '';
+                document.getElementById('customer-phone').value = '';
+                document.getElementById('delivery-address').value = '';
+                document.getElementById('payment-method').value = '';
+                document.getElementById('troco-value').value = '';
+                document.getElementById('troco-field').style.display = 'none';
             }
-
-            updateCart();
         }
         
         function toggleTrocoField() {
-            const paymentMethod = document.getElementById('payment-method')?.value || '';
+            const paymentMethod = document.getElementById('payment-method').value;
             const trocoField = document.getElementById('troco-field');
-            
-            if (!trocoField) return;
             
             if (paymentMethod === 'dinheiro') {
                 trocoField.style.display = 'block';
             } else {
                 trocoField.style.display = 'none';
-                const trocoValue = document.getElementById('troco-value');
-                if (trocoValue) trocoValue.value = '';
+                document.getElementById('troco-value').value = '';
             }
+        }
+
+        function getAdicionalPrecoByNome(nomeAdicional) {
+            const ad = adicionais.find(a => a.nome === nomeAdicional);
+            return ad ? Number(ad.preco) : 0;
         }
         
         function sendOrder() {
@@ -1150,43 +1138,56 @@
             message += '====================================\n\n';
             
             cart.forEach((item, index) => {
+                const qtd = Number(item.quantity || 1);
+                const precoBase = Number(item.precoBase ?? item.preco ?? 0);
+                const precoUnitFinal = Number(item.preco || 0);
+                const totalItem = precoUnitFinal * qtd;
+
                 message += `${index + 1}. *${item.nome}*\n`;
+                message += `   ${qtd}x ${formatBRL(precoBase)} (base)\n`;
+
                 if (item.adicionais && item.adicionais.length > 0) {
-                    message += `   + Adicionais: ${item.adicionais.join(', ')}\n`;
+                    item.adicionais.forEach(nomeAdicional => {
+                        const precoAd = getAdicionalPrecoByNome(nomeAdicional);
+                        if (precoAd > 0) {
+                            message += `   + ${nomeAdicional}: ${formatBRL(precoAd)}\n`;
+                        } else {
+                            message += `   + ${nomeAdicional}\n`;
+                        }
+                    });
                 }
-                if (item.preco > 0) {
-                    message += `   Qtd: ${item.quantity} x R$ ${item.preco.toFixed(2)} = R$ ${(item.preco * item.quantity).toFixed(2)}\n`;
-                } else {
-                    message += `   Qtd: ${item.quantity} (consultar preço)\n`;
-                }
+
+                message += `   *Total do item:* ${formatBRL(totalItem)}\n`;
+
                 if (item.obs) {
                     message += `   Obs: ${item.obs}\n`;
                 }
+
                 message += '\n';
             });
             
             message += '====================================\n\n';
             
-            const subtotal = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
+            const subtotal = cart.reduce((sum, item) => sum + (Number(item.preco) * Number(item.quantity)), 0);
             const deliveryFee = deliveryMethod === 'delivery' ? DELIVERY_FEE : 0;
             const total = subtotal + deliveryFee;
-            const hasConsulta = cart.some(item => item.preco === 0);
+            const hasConsulta = cart.some(item => Number(item.preco) === 0);
             
             message += '*RESUMO DO PEDIDO*\n';
-            message += `Subtotal: R$ ${subtotal.toFixed(2)}\n`;
-            message += `Taxa de entrega: R$ ${deliveryFee.toFixed(2)}\n`;
+            message += `Subtotal: ${formatBRL(subtotal)}\n`;
+            message += `Taxa de entrega: ${formatBRL(deliveryFee)}\n`;
             
             if (hasConsulta) {
-                message += '*TOTAL:* R$ ' + total.toFixed(2) + ' + itens a consultar\n\n';
+                message += `*TOTAL:* ${formatBRL(total)} + itens a consultar\n\n`;
             } else {
-                message += '*TOTAL:* R$ ' + total.toFixed(2) + '\n\n';
+                message += `*TOTAL:* ${formatBRL(total)}\n\n`;
             }
             
             const deliveryText = {
                 retirada: 'Retirada no Local',
                 delivery: 'Delivery'
             };
-            message += '*FORMA DE ENTREGA:* ' + deliveryText[deliveryMethod] + '\n';
+            message += `*FORMA DE ENTREGA:* ${deliveryText[deliveryMethod]}\n`;
             
             if (deliveryMethod === 'delivery') {
                 const customerName = document.getElementById('customer-name')?.value.trim() || '';
@@ -1231,6 +1232,7 @@
                     const deliveryMethodSelect = document.getElementById('delivery-method');
                     if (deliveryMethodSelect) deliveryMethodSelect.value = '';
                     toggleDeliveryFields();
+                    updateCart();
                 }
             }, 1000);
         }
@@ -1273,6 +1275,7 @@
             const dayOfWeek = dayMap[weekdayStr];
 
             const currentMinutes = (hour * 60) + minute;
+
             const openMinutes = 19 * 60;
             const closeMinutes = (23 * 60) + 30;
 
@@ -1320,20 +1323,6 @@
         
         updateStatusBadge();
         setInterval(updateStatusBadge, 60000);
-
-        document.addEventListener('input', function (e) {
-            if (e.target && e.target.id === 'customer-phone') {
-                let v = e.target.value.replace(/\D/g, '').slice(0, 11);
-                if (v.length <= 10) {
-                    v = v.replace(/(\d{2})(\d)/, '($1) $2')
-                         .replace(/(\d{4})(\d)/, '$1-$2');
-                } else {
-                    v = v.replace(/(\d{2})(\d)/, '($1) $2')
-                         .replace(/(\d{5})(\d)/, '$1-$2');
-                }
-                e.target.value = v;
-            }
-        });
     </script>
 
 </body>
