@@ -43,7 +43,6 @@
             background-color: var(--cor-grafite);
             color: var(--cor-bege);
             line-height: 1.6;
-            /* Suaviza rolagem nativa em aparelhos mobile */
             -webkit-font-smoothing: antialiased;
         }
         
@@ -145,24 +144,10 @@
             border: 1px solid rgba(217,104,70,0.2);
         }
         
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--cor-laranja);
-        }
-
-        .product-card.added {
-            border-color: #10b981;
-            box-shadow: 0 0 0 2px rgba(16,185,129,0.4);
-        }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--cor-laranja); }
+        .product-card.added { border-color: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,0.4); }
         
-        #cart-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            /* Garantir que não sobreponha no celular */
-            max-width: 45%;
-        }
+        #cart-button { position: fixed; bottom: 20px; right: 20px; z-index: 999; max-width: 45%; }
         
         .cart-badge {
             position: absolute;
@@ -200,26 +185,19 @@
             overflow-y: auto;
             padding: 2rem;
             position: relative;
-            /* Otimização Mobile: Rolagem fluida e trava do body */
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
         }
         
         section { padding: 5rem 1rem; }
         
-        .section-title {
-            font-size: 3rem;
-            color: var(--cor-laranja);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+        .section-title { font-size: 3rem; color: var(--cor-laranja); margin-bottom: 1rem; text-align: center; }
         
         html { scroll-behavior: smooth; }
         
         @media (max-width: 768px) {
             .section-title { font-size: 2.5rem; }
             .btn-primary, .btn-secondary { padding: 1rem 1.5rem; font-size: 1rem; }
-            
             .hero-section {
                 background: linear-gradient(to bottom,
                     rgba(35,31,32,0.3) 0%,
@@ -227,41 +205,27 @@
                     rgba(35,31,32,0.8) 60%,
                     rgba(35,31,32,0.95) 85%,
                     #231F20 100%
-                ), url('assets/background-hero-mobile.webp'); /* Imagem Otimizada */
+                ), url('assets/background-hero-mobile.webp');
                 background-size: cover;
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-attachment: scroll;
             }
-            
-            .hero-section::after {
-                height: 80px;
-                background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.7) 40%, #231F20 100%);
-            }
-            
+            .hero-section::after { height: 80px; background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.7) 40%, #231F20 100%); }
             .logo-circle-container { width: 280px; height: 280px; }
             .logo-center { width: 180px; }
-            
-            /* Ajuste de padding no modal mobile para teclado */
             .modal-content { padding: 1.5rem; }
         }
         
-        @media (min-width: 769px) {
-            .hero-section { background-attachment: fixed; }
-        }
+        @media (min-width: 769px) { .hero-section { background-attachment: fixed; } }
         
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .quantity-control { display: flex; align-items: center; gap: 1rem; }
         
-        /* UX Mobile: Tamanho mínimo ergonômico para toque */
         .quantity-control button {
             background: var(--cor-laranja);
             color: white;
             border: none;
-            width: 44px; height: 44px; /* Aumentado de 36px para 44px */
+            width: 44px; height: 44px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.2rem;
@@ -272,338 +236,71 @@
             box-shadow: 0 2px 8px rgba(249,137,23,0.3);
         }
         
-        .quantity-control button:hover, .quantity-control button:active {
-            background: var(--cor-laranja-hover);
-            transform: scale(1.05);
-        }
+        .quantity-control button:hover, .quantity-control button:active { background: var(--cor-laranja-hover); transform: scale(1.05); }
+        .quantity-control span { font-size: 1.25rem; font-weight: 700; min-width: 40px; text-align: center; }
         
-        .quantity-control span {
-            font-size: 1.25rem;
-            font-weight: 700;
-            min-width: 40px;
-            text-align: center;
-        }
+        .logo-circle-container { position: relative; width: 340px; height: 340px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; z-index: 1; }
+        @media (min-width: 768px) { .logo-circle-container { width: 450px; height: 450px; } }
         
-        .logo-circle-container {
-            position: relative;
-            width: 340px; height: 340px;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
+        .circular-text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: rotate 30s linear infinite; will-change: transform; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .circular-text text { font-family: 'Sunflower', cursive; font-size: 11px; font-weight: 600; fill: var(--cor-laranja); letter-spacing: 2px; }
+        @media (min-width: 768px) { .circular-text text { font-size: 13px; letter-spacing: 3px; } }
         
-        @media (min-width: 768px) {
-            .logo-circle-container { width: 450px; height: 450px; }
-        }
+        .logo-center { position: relative; width: 220px; height: auto; z-index: 10; }
+        @media (min-width: 768px) { .logo-center { width: 300px; } }
         
-        .circular-text {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            animation: rotate 30s linear infinite;
-            /* Suaviza a animação no mobile */
-            will-change: transform;
-        }
+        .hero-title { font-family: 'Pacifico', cursive !important; text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,0.7), 0 0 30px rgba(249,137,23,0.4); }
+        h1, h2, .display-font { text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.6); }
         
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        .info-box { background: linear-gradient(135deg, rgba(249,137,23,0.08) 0%, rgba(184,74,46,0.08) 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(249,137,23,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); }
         
-        .circular-text text {
-            font-family: 'Sunflower', cursive;
-            font-size: 11px;
-            font-weight: 600;
-            fill: var(--cor-laranja);
-            letter-spacing: 2px;
-        }
+        .icon-highlight { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.03); border-radius: 50px; border: 1px solid rgba(249,137,23,0.25); transition: all 0.3s ease; }
+        .icon-highlight:hover { background: rgba(249,137,23,0.08); border-color: rgba(249,137,23,0.4); transform: translateY(-2px); }
         
-        @media (min-width: 768px) {
-            .circular-text text { font-size: 13px; letter-spacing: 3px; }
-        }
+        .decorative-divider { width: 60px; height: 3px; background: linear-gradient(90deg, transparent, #F98917, transparent); margin: 1rem auto; }
         
-        .logo-center {
-            position: relative;
-            width: 220px;
-            height: auto;
-            z-index: 10;
-        }
+        .badge-highlight { display: inline-block; padding: 0.5rem 1rem; color: white; font-weight: 700; border-radius: 20px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .badge-open { background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 4px 15px rgba(16,185,129,0.4); animation: pulse 2s ease-in-out infinite; }
+        .badge-closed { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); box-shadow: 0 4px 15px rgba(239,68,68,0.4); }
+        .badge-opens-soon { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); box-shadow: 0 4px 15px rgba(245,158,11,0.4); }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         
-        @media (min-width: 768px) {
-            .logo-center { width: 300px; }
-        }
+        .whatsapp-float { position: fixed; bottom: 25px; left: 20px; z-index: 1000; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0.7); transition: all 0.3s ease; cursor: pointer; text-decoration: none; animation: whatsapp-pulse 2s infinite; }
+        .whatsapp-float:hover, .whatsapp-float:active { transform: scale(1.05); box-shadow: 0 8px 40px rgba(37,211,102,0.8); }
+        @keyframes whatsapp-pulse { 0% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0.7); } 50% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0); } }
         
-        .hero-title {
-            font-family: 'Pacifico', cursive !important;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,0.7), 0 0 30px rgba(249,137,23,0.4);
-        }
-        
-        h1, h2, .display-font {
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.6);
-        }
-        
-        .info-box {
-            background: linear-gradient(135deg, rgba(249,137,23,0.08) 0%, rgba(184,74,46,0.08) 100%);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(249,137,23,0.3);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-        
-        .icon-highlight {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            background: rgba(255,255,255,0.03);
-            border-radius: 50px;
-            border: 1px solid rgba(249,137,23,0.25);
-            transition: all 0.3s ease;
-        }
-        
-        .icon-highlight:hover {
-            background: rgba(249,137,23,0.08);
-            border-color: rgba(249,137,23,0.4);
-            transform: translateY(-2px);
-        }
-        
-        .decorative-divider {
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, transparent, #F98917, transparent);
-            margin: 1rem auto;
-        }
-        
-        .badge-highlight {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            color: white;
-            font-weight: 700;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        .badge-open {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            box-shadow: 0 4px 15px rgba(16,185,129,0.4);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .badge-closed {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            box-shadow: 0 4px 15px rgba(239,68,68,0.4);
-        }
-        
-        .badge-opens-soon {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px; left: 20px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-            width: 65px; height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0.7);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            animation: whatsapp-pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover, .whatsapp-float:active {
-            transform: scale(1.05);
-            box-shadow: 0 8px 40px rgba(37,211,102,0.8);
-        }
-        
-        @keyframes whatsapp-pulse {
-            0% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0.7); }
-            50% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 15px rgba(37,211,102,0); }
-            100% { box-shadow: 0 6px 30px rgba(37,211,102,0.6), 0 0 0 0 rgba(37,211,102,0); }
-        }
-        
-        .whatsapp-text {
-            position: absolute;
-            right: 75px;
-            background: white;
-            color: #128C7E;
-            padding: 0.75rem 1.25rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp-float:hover .whatsapp-text {
-            opacity: 1;
-            visibility: visible;
-            right: 80px;
-        }
-        
-        @media (max-width: 768px) {
-            /* Garante que o ícone do Whatsapp fique no canto e não atrapalhe os dedos */
-            .whatsapp-float { width: 56px; height: 56px; bottom: 20px; left: 15px; font-size: 1.75rem; }
-            .whatsapp-text { display: none; }
-        }
+        .whatsapp-text { position: absolute; right: 75px; background: white; color: #128C7E; padding: 0.75rem 1.25rem; border-radius: 25px; font-weight: 700; font-size: 0.95rem; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .whatsapp-float:hover .whatsapp-text { opacity: 1; visibility: visible; right: 80px; }
+        @media (max-width: 768px) { .whatsapp-float { width: 56px; height: 56px; bottom: 20px; left: 15px; font-size: 1.75rem; } .whatsapp-text { display: none; } }
 
-        #toast {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 0.85rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 6px 20px rgba(16,185,129,0.4);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            pointer-events: none;
-        }
+        #toast { position: fixed; bottom: 90px; right: 20px; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 0.85rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; z-index: 3000; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 20px rgba(16,185,129,0.4); transform: translateY(20px); opacity: 0; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); pointer-events: none; }
+        #toast.show { transform: translateY(0); opacity: 1; }
 
-        #toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        .badge-unavailable-delivery { display: inline-block; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #fca5a5; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; letter-spacing: 0.5px; margin-top: 0.25rem; }
+        .modal-price-display { font-size: 1.4rem; font-weight: 700; color: var(--cor-laranja); margin-bottom: 1.25rem; }
 
-        .badge-unavailable-delivery {
-            display: inline-block;
-            background: rgba(239,68,68,0.15);
-            border: 1px solid rgba(239,68,68,0.4);
-            color: #fca5a5;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            margin-top: 0.25rem;
-        }
-
-        .modal-price-display {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--cor-laranja);
-            margin-bottom: 1.25rem;
-        }
-
-        #confirm-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
+        #confirm-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
         #confirm-modal.active { display: flex; }
+        #confirm-modal .confirm-box { background: #2b2b2b; border-radius: 20px; padding: 2rem; max-width: 380px; width: 100%; border: 1px solid rgba(249,137,23,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.6); text-align: center; }
 
-        #confirm-modal .confirm-box {
-            background: #2b2b2b;
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 380px;
-            width: 100%;
-            border: 1px solid rgba(249,137,23,0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-            text-align: center;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--cor-laranja-claro);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            background: #1a1a1a;
-            color: white;
-            border: 1px solid #374151;
-            margin-bottom: 0.75rem;
-            /* FONT SIZE DE 16PX OU 1REM IMPEDE ZOOM NO IPHONE AO CLICAR NO CAMPO */
-            font-size: 1rem; 
-            transition: border-color 0.2s;
-            appearance: none;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--cor-laranja);
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            background: #1a1a1a;
-            color: white;
-            border: 1px solid #374151;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: border-color 0.2s;
-            appearance: none;
-        }
-
-        .form-select:focus {
-            outline: none;
-            border-color: var(--cor-laranja);
-        }
-
-        .maps-link {
-            color: var(--cor-laranja);
-            text-decoration: underline;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
+        .form-label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cor-laranja-claro); }
+        .form-input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #1a1a1a; color: white; border: 1px solid #374151; margin-bottom: 0.75rem; font-size: 1rem; transition: border-color 0.2s; appearance: none; }
+        .form-input:focus { outline: none; border-color: var(--cor-laranja); }
+        .form-select { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #1a1a1a; color: white; border: 1px solid #374151; margin-bottom: 0.75rem; font-size: 1rem; cursor: pointer; transition: border-color 0.2s; appearance: none; }
+        .form-select:focus { outline: none; border-color: var(--cor-laranja); }
+        .maps-link { color: var(--cor-laranja); text-decoration: underline; font-weight: 600; transition: color 0.2s; }
         .maps-link:hover { color: var(--cor-laranja-claro); }
-
         .modal-content::-webkit-scrollbar { width: 6px; }
         .modal-content::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 3px; }
         .modal-content::-webkit-scrollbar-thumb { background: var(--cor-laranja); border-radius: 3px; }
-        
-        /* Ajuste visual em checkboxes no mobile */
-        .adicional-checkbox {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--cor-laranja);
-        }
+        .adicional-checkbox { width: 18px; height: 18px; accent-color: var(--cor-laranja); }
     </style>
 </head>
 <body>
+
+    <!-- PATCH: Indicador sistema online -->
+    <div id="sistema-status" style="display:none; position:fixed; top:70px; right:12px; z-index:900; font-size:0.7rem; font-weight:700; padding:4px 10px; border-radius:20px; opacity:0.85; pointer-events:none; background:rgba(16,185,129,0.2); border:1px solid rgba(16,185,129,0.4); color:#6ee7b7;">⚡ Pedido Direto</div>
 
     <header class="header-fixed">
         <nav class="container mx-auto px-2 md:px-4 py-3">
@@ -614,14 +311,12 @@
                         <span style="color: var(--cor-laranja);">Simplê</span><span style="color: var(--cor-bege);"> Sabor</span>
                     </span>
                 </div>
-                
                 <div class="hidden md:flex flex-col items-center text-center" style="color: var(--cor-bege);">
                     <a href="https://maps.google.com/?q=Rua+Cassilândia,+1068,+Chapadão+do+Sul,+MS" target="_blank" class="maps-link text-xs">
                         📍 Rua Cassilândia, 1068 — Chapadão do Sul, MS
                     </a>
                     <span class="text-xs mt-1">🕐 Terça a Domingo • 19:00 às 23:30 horário Brasília</span>
                 </div>
-                
                 <div class="flex gap-4 items-center">
                     <span id="header-status-badge" class="badge-highlight"></span>
                 </div>
@@ -630,9 +325,7 @@
     </header>
 
     <a href="https://wa.me/5567999496825?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20no%20Simplê%20Sabor!%20😋"
-       target="_blank"
-       class="whatsapp-float"
-       title="Chamar no WhatsApp">
+       target="_blank" class="whatsapp-float" title="Chamar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-text">Peça pelo WhatsApp!</span>
     </a>
@@ -650,66 +343,37 @@
                         <path id="circlePath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"/>
                     </defs>
                     <text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #F98917; letter-spacing: 3px;">
-                        <textPath href="#circlePath" startOffset="0%">
-                            SIMPLE SABOR • DO SIMPLES AO EXTRAORDINARIO •
-                        </textPath>
+                        <textPath href="#circlePath" startOffset="0%">SIMPLE SABOR • DO SIMPLES AO EXTRAORDINARIO •</textPath>
                     </text>
                 </svg>
                 <img src="assets/logo-hero-transparente.png" alt="Simplê Sabor Logo" class="logo-center">
             </div>
-            
             <h1 class="hero-title text-5xl md:text-7xl mb-6 leading-tight">
                 Feito com <span class="text-orange-500">Carinho</span><br>pela Rosane
             </h1>
-            
-            <div class="mb-6">
-                <span id="status-badge" class="badge-highlight"></span>
-            </div>
-            
+            <div class="mb-6"><span id="status-badge" class="badge-highlight"></span></div>
             <div class="decorative-divider"></div>
-            
             <div class="info-box rounded-2xl p-6 max-w-3xl mx-auto mb-8">
                 <p class="text-lg md:text-xl font-semibold mb-4 flex items-center justify-center gap-2">
                     <i class="far fa-clock text-orange-400"></i>
                     <span>Terça a Domingo • 19:00 às 23:30</span>
                 </p>
                 <p class="text-sm text-orange-300 mb-4">horário de Brasília</p>
-                
                 <div class="flex flex-wrap gap-3 justify-center">
-                    <span class="icon-highlight">
-                        <i class="fas fa-utensils text-orange-400"></i>
-                        <span class="text-sm">Serve no Local</span>
-                    </span>
-                    <span class="icon-highlight">
-                        <i class="fas fa-motorcycle text-orange-400"></i>
-                        <span class="text-sm">Delivery</span>
-                    </span>
-                    <span class="icon-highlight">
-                        <i class="fas fa-shopping-bag text-orange-400"></i>
-                        <span class="text-sm">Retirada</span>
-                    </span>
+                    <span class="icon-highlight"><i class="fas fa-utensils text-orange-400"></i><span class="text-sm">Serve no Local</span></span>
+                    <span class="icon-highlight"><i class="fas fa-motorcycle text-orange-400"></i><span class="text-sm">Delivery</span></span>
+                    <span class="icon-highlight"><i class="fas fa-shopping-bag text-orange-400"></i><span class="text-sm">Retirada</span></span>
                 </div>
             </div>
-            
             <p class="text-lg mb-2 flex items-center justify-center gap-2">
                 <i class="fas fa-map-marker-alt text-orange-400"></i>
-                <a href="https://maps.google.com/?q=Rua+Cassilândia,+1068,+Chapadão+do+Sul,+MS"
-                   target="_blank"
-                   class="maps-link">
-                    Rua Cassilândia, 1068
-                </a>
+                <a href="https://maps.google.com/?q=Rua+Cassilândia,+1068,+Chapadão+do+Sul,+MS" target="_blank" class="maps-link">Rua Cassilândia, 1068</a>
             </p>
             <p class="text-sm text-gray-400 mb-12">Chapadão do Sul, MS</p>
-            
             <div class="decorative-divider mb-8"></div>
-            
             <div class="mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 display-font text-white">
-                    Faça seu pedido agora! 😋
-                </h2>
-                <p class="text-lg text-gray-300">
-                    Role para baixo e escolha seus lanches favoritos!
-                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 display-font text-white">Faça seu pedido agora! 😋</h2>
+                <p class="text-lg text-gray-300">Role para baixo e escolha seus lanches favoritos!</p>
             </div>
         </div>
     </section>
@@ -721,20 +385,11 @@
                 Ingredientes selecionados e preparados na hora com aquele tempero especial.<br>
                 <span class="text-orange-400 font-semibold">O difícil vai ser escolher um só! 😋</span>
             </p>
-            
-            <h3 class="text-3xl font-bold text-orange-500 mb-6 text-center">
-                <i class="fas fa-hotdog"></i> Cachorro Quente Prensado
-            </h3>
+            <h3 class="text-3xl font-bold text-orange-500 mb-6 text-center"><i class="fas fa-hotdog"></i> Cachorro Quente Prensado</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="lanches-grid"></div>
-            
-            <h3 class="text-3xl font-bold text-green-400 mb-6 text-center">
-                <i class="fas fa-pizza-slice"></i> Crepes Abertos
-            </h3>
+            <h3 class="text-3xl font-bold text-green-400 mb-6 text-center"><i class="fas fa-pizza-slice"></i> Crepes Abertos</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" id="crepes-grid"></div>
-            
-            <h3 class="text-3xl font-bold text-blue-400 mb-6 text-center">
-                <i class="fas fa-glass-water"></i> Bebidas
-            </h3>
+            <h3 class="text-3xl font-bold text-blue-400 mb-6 text-center"><i class="fas fa-glass-water"></i> Bebidas</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="bebidas-grid"></div>
         </div>
     </section>
@@ -747,46 +402,29 @@
     <div id="cart-modal" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text-orange-500">
-                    <i class="fas fa-shopping-cart"></i> Seu Pedido
-                </h2>
-                <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-3xl" aria-label="Fechar carrinho">
-                    <i class="fas fa-times"></i>
-                </button>
+                <h2 class="text-3xl font-bold text-orange-500"><i class="fas fa-shopping-cart"></i> Seu Pedido</h2>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-3xl" aria-label="Fechar carrinho"><i class="fas fa-times"></i></button>
             </div>
-            
             <div id="cart-items" class="mb-6"></div>
-            
             <div class="border-t border-gray-700 pt-6 mb-6">
                 <div class="space-y-2 mb-4 text-lg">
-                    <div class="flex justify-between">
-                        <span>Subtotal:</span>
-                        <span id="cart-subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Taxa de entrega:</span>
-                        <span id="cart-delivery-fee">R$ 0,00</span>
-                    </div>
+                    <div class="flex justify-between"><span>Subtotal:</span><span id="cart-subtotal">R$ 0,00</span></div>
+                    <div class="flex justify-between"><span>Taxa de entrega:</span><span id="cart-delivery-fee">R$ 0,00</span></div>
                     <div class="flex justify-between text-2xl font-bold border-t border-gray-700 pt-3">
-                        <span>Total:</span>
-                        <span class="text-orange-500" id="cart-total">R$ 0,00</span>
+                        <span>Total:</span><span class="text-orange-500" id="cart-total">R$ 0,00</span>
                     </div>
                 </div>
-                
                 <label class="form-label">Forma de Entrega:</label>
                 <select id="delivery-method" class="form-select" onchange="toggleDeliveryFields(); updateCart();">
                     <option value="">Selecione...</option>
                     <option value="retirada">🛍️ Retirada no Local</option>
                     <option value="delivery">🏍️ Delivery</option>
                 </select>
-
                 <div id="common-fields" style="display: none;">
                     <label class="form-label">Nome:</label>
                     <input type="text" id="customer-name" class="form-input" placeholder="Seu nome completo">
-                    
                     <label class="form-label">Telefone:</label>
                     <input type="tel" id="customer-phone" class="form-input" placeholder="(67) 99999-9999" maxlength="15" inputmode="numeric">
-
                     <label class="form-label">Forma de Pagamento:</label>
                     <select id="payment-method" class="form-select" onchange="toggleTrocoField()">
                         <option value="">Selecione...</option>
@@ -794,23 +432,19 @@
                         <option value="cartao">💳 Cartão</option>
                         <option value="dinheiro">💵 Dinheiro</option>
                     </select>
-                    
                     <div id="troco-field" style="display: none;">
                         <label class="form-label">Troco para quanto?</label>
                         <input type="text" id="troco-value" class="form-input" placeholder="Ex: R$ 50 (ou 'Sem troco')">
                     </div>
                 </div>
-
                 <div id="delivery-fields" style="display: none;">
                     <label class="form-label">Endereço para Entrega:</label>
                     <input type="text" id="delivery-address" class="form-input" placeholder="Rua, número, bairro...">
                 </div>
-                
                 <button onclick="sendOrder()" class="btn-primary w-full justify-center text-xl mt-4">
                     <i class="fab fa-whatsapp"></i> Enviar Pedido
                 </button>
             </div>
-            
             <button onclick="clearCart()" class="text-red-500 hover:text-red-400 w-full text-center py-2 mt-2">
                 <i class="fas fa-trash"></i> Limpar Carrinho
             </button>
@@ -823,16 +457,12 @@
             <h3 style="font-family:'Sunflower',cursive; font-size:1.75rem; font-weight:700; color:#ef4444; margin-bottom:0.75rem;">Estamos Fechados</h3>
             <p style="color:#d1d5db; margin-bottom:0.5rem;">No momento não estamos aceitando pedidos.</p>
             <p style="color:#F98917; font-weight:700; font-size:1.05rem; margin-bottom:1.75rem;" id="closed-modal-next">Abriremos em breve às 19:00 BR 🕖</p>
-            <a href="https://wa.me/5567999496825?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20Simplê%20Sabor!"
-               target="_blank"
+            <a href="https://wa.me/5567999496825?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20Simplê%20Sabor!" target="_blank"
                style="display:inline-flex; align-items:center; gap:0.6rem; background:linear-gradient(135deg,#25D366,#128C7E); color:white; padding:0.9rem 1.75rem; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; margin-bottom:1rem; box-shadow:0 4px 15px rgba(37,211,102,0.35);">
                 <i class="fab fa-whatsapp" style="font-size:1.25rem;"></i> Tirar dúvidas no WhatsApp
             </a>
             <br>
-            <button onclick="closeClosedModal()"
-                    style="background:transparent; border:1px solid #4b5563; color:#9ca3af; padding:0.6rem 1.5rem; border-radius:50px; cursor:pointer; font-size:0.9rem; margin-top:0.5rem;">
-                Fechar
-            </button>
+            <button onclick="closeClosedModal()" style="background:transparent; border:1px solid #4b5563; color:#9ca3af; padding:0.6rem 1.5rem; border-radius:50px; cursor:pointer; font-size:0.9rem; margin-top:0.5rem;">Fechar</button>
         </div>
     </div>
 
@@ -842,27 +472,25 @@
             <h3 class="text-xl font-bold text-orange-500 mb-2">Atenção</h3>
             <p class="text-gray-300 mb-6" id="confirm-message">Mensagem de confirmação</p>
             <div class="flex gap-3 justify-center">
-                <button id="confirm-yes" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
-                    <i class="fas fa-check"></i> Sim
-                </button>
-                <button id="confirm-no" class="btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
-                    <i class="fas fa-times"></i> Não
-                </button>
+                <button id="confirm-yes" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;"><i class="fas fa-check"></i> Sim</button>
+                <button id="confirm-no" class="btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 1rem;"><i class="fas fa-times"></i> Não</button>
             </div>
         </div>
     </div>
 
     <script>
         const DELIVERY_FEE = 7.00;
+        // ── PATCH: Integração com sistema de pedidos ──
+        const SISTEMA_API_URL = "https://tommye-overfierce-aggrievedly.ngrok-free.dev";
+        const SISTEMA_API_KEY = "simplesabor2025";
 
         const adicionais = [
             { id: 'bacon',     nome: 'Bacon',     preco: 3.00 },
             { id: 'calabresa', nome: 'Calabresa', preco: 3.00 },
             { id: 'salada',    nome: 'Salada',    preco: 2.00 },
-            { id: 'salsicha',    nome: 'Salsicha',    preco: 2.00 }
+            { id: 'salsicha',  nome: 'Salsicha',  preco: 2.00 }
         ];
         
-        // CARDÁPIO ATUALIZADO (REMOVIDO FANTA, ADICIONADO 'CREPE DE')
         const produtos = {
             lanches: [
                 { id: 'dog-tradicional', nome: 'Dog Tradicional', preco: 20.00, descricao: 'Pão, salsicha, molho vermelho, queijo e batata palha' },
@@ -879,48 +507,51 @@
                 { id: 'crepe-romeu',      nome: 'Crepe de Romeu e Julieta',     preco: 25.00, descricao: 'Crepe doce com goiabada e queijo' }
             ],
             bebidas: [
-                { id: 'Água',                  nome: 'Água',                        preco: 4.00,  descricao: 'Água mineral com ou sem gás' },
-                { id: 'Suco de uva',           nome: 'Suco de Uva',                 preco: 7.00,  descricao: 'Suco de uva lata Del Valle 290ml' },
-                { id: 'Suco de maracuja',      nome: 'Suco de Maracujá',            preco: 7.00,  descricao: 'Suco de maracujá Del Valle lata 290ml'},
-                { id: 'Suco de pessego',       nome: 'Suco de Pessego',             preco: 7.00,  descricao: 'Suco de pessego Del Valle lata 290ml'},
-                { id: 'Coca-mini',             nome: 'Coca-Cola Mini 220ml',        preco: 5.00,  descricao: 'Coca-Cola lata mini 220ml' },
-                { id: 'Fanta-mini',            nome: 'Fanta Mini 220ml',            preco: 5.00,  descricao: 'Fanta lata mini 220ml' },
-                { id: 'Coca-Cola 350',         nome: 'Coca-Cola/Zero 350ml',        preco: 6.00,  descricao: 'Coca-Cola ou Coca Zero lata 350ml' },
-                { id: 'Guarana-Antarctica-350', nome: 'Guaraná Antarctica 350ml',   preco: 6.00,  descricao: 'Guaraná Antarctica lata 350ml' },
-                { id: 'Coca-Cola600',          nome: 'Coca-Cola 600ml',             preco: 8.00,  descricao: 'Coca-Cola garrafa 600ml' },
-                { id: 'Coca-Cola1l',           nome: 'Coca-Cola 1 Litro',           preco: 9.00,  descricao: 'Coca-Cola garrafa 1 litro', unavailableForDelivery: true },
-                { id: 'Cerveja Heineken 290',  nome: 'Cerveja Heineken 269ml',      preco: 8.00,  descricao: 'Cerveja Heineken lata 269ml' },
-                { id: 'Cerveja Amstel 290',    nome: 'Cerveja Amstel 269ml',        preco: 6.00,  descricao: 'Cerveja Amstel lata 269ml' },
+                { id: 'Água',                   nome: 'Água',                      preco: 4.00, descricao: 'Água mineral com ou sem gás' },
+                { id: 'Suco de uva',            nome: 'Suco de Uva',               preco: 7.00, descricao: 'Suco de uva lata Del Valle 290ml' },
+                { id: 'Suco de maracuja',       nome: 'Suco de Maracujá',          preco: 7.00, descricao: 'Suco de maracujá Del Valle lata 290ml' },
+                { id: 'Suco de pessego',        nome: 'Suco de Pessego',           preco: 7.00, descricao: 'Suco de pessego Del Valle lata 290ml' },
+                { id: 'Coca-mini',              nome: 'Coca-Cola Mini 220ml',      preco: 5.00, descricao: 'Coca-Cola lata mini 220ml' },
+                { id: 'Fanta-mini',             nome: 'Fanta Mini 220ml',          preco: 5.00, descricao: 'Fanta lata mini 220ml' },
+                { id: 'Coca-Cola 350',          nome: 'Coca-Cola/Zero 350ml',      preco: 6.00, descricao: 'Coca-Cola ou Coca Zero lata 350ml' },
+                { id: 'Guarana-Antarctica-350', nome: 'Guaraná Antarctica 350ml',  preco: 6.00, descricao: 'Guaraná Antarctica lata 350ml' },
+                { id: 'Coca-Cola600',           nome: 'Coca-Cola 600ml',           preco: 8.00, descricao: 'Coca-Cola garrafa 600ml' },
+                { id: 'Coca-Cola1l',            nome: 'Coca-Cola 1 Litro',         preco: 9.00, descricao: 'Coca-Cola garrafa 1 litro', unavailableForDelivery: true },
+                { id: 'Cerveja Heineken 290',   nome: 'Cerveja Heineken 269ml',    preco: 8.00, descricao: 'Cerveja Heineken lata 269ml' },
+                { id: 'Cerveja Amstel 290',     nome: 'Cerveja Amstel 269ml',      preco: 6.00, descricao: 'Cerveja Amstel lata 269ml' },
             ]
         };
         
         let cart = [];
         let currentModalBasePrice = 0;
 
-        // ─── GERENCIAMENTO DE BODY SCROLL (NOVA OTIMIZAÇÃO MOBILE) ─────────────
+        // ── PATCH: Status do sistema ──
+        let sistemaOnline = false;
+
+        async function checkSistemaOnline() {
+            try {
+                const resp = await fetch(`${SISTEMA_API_URL}/teste`, {
+                    signal: AbortSignal.timeout(4000),
+                    headers: { 'ngrok-skip-browser-warning': '1' }
+                });
+                sistemaOnline = resp.ok;
+            } catch(e) {
+                sistemaOnline = false;
+            }
+            const el = document.getElementById('sistema-status');
+            if (el) el.style.display = sistemaOnline ? 'block' : 'none';
+        }
+
         function updateBodyScroll() {
-            // Verifica se algum modal importante está ativo
             const hasActiveModal = document.querySelectorAll('.modal.active, #confirm-modal.active').length > 0 || 
                                    document.getElementById('closed-modal').style.display === 'flex';
-            
-            if (hasActiveModal) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = hasActiveModal ? 'hidden' : '';
         }
 
-        // ─── PERSISTÊNCIA (LOCALSTORAGE) ────────────────────────────────────────
-
-        function saveCart() {
-            localStorage.setItem('simpleSaborCart', JSON.stringify(cart));
-        }
-
+        function saveCart() { localStorage.setItem('simpleSaborCart', JSON.stringify(cart)); }
         function loadCart() {
             const saved = localStorage.getItem('simpleSaborCart');
-            if (saved) {
-                try { cart = JSON.parse(saved); } catch(e) { cart = []; }
-            }
+            if (saved) { try { cart = JSON.parse(saved); } catch(e) { cart = []; } }
         }
 
         function saveCustomerData() {
@@ -945,23 +576,12 @@
                 if (nameEl    && d.name)    nameEl.value    = d.name;
                 if (phoneEl   && d.phone)   phoneEl.value   = d.phone;
                 if (addressEl && d.address) addressEl.value = d.address;
-            } catch(e) { /* ignora */ }
+            } catch(e) {}
         }
 
-        // ─── UTILITÁRIOS ────────────────────────────────────────────────────────
-
-        function formatBRL(value) {
-            return `R$ ${Number(value).toFixed(2).replace('.', ',')}`;
-        }
-
-        function formatMoneyDot(value) {
-            return `R$ ${Number(value).toFixed(2)}`;
-        }
-
-        function normalizePhoneDigits(value) {
-            return value.replace(/\D/g, '').slice(0, 11);
-        }
-
+        function formatBRL(value) { return `R$ ${Number(value).toFixed(2).replace('.', ',')}`;  }
+        function formatMoneyDot(value) { return `R$ ${Number(value).toFixed(2)}`; }
+        function normalizePhoneDigits(value) { return value.replace(/\D/g, '').slice(0, 11); }
         function formatPhoneBR(value) {
             const d = normalizePhoneDigits(value);
             if (!d.length) return '';
@@ -969,11 +589,7 @@
             if (d.length <= 7)  return `(${d.slice(0,2)}) ${d.slice(2)}`;
             return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7,11)}`;
         }
-
-        function applyPhoneMask(input) {
-            input.value = formatPhoneBR(input.value);
-        }
-
+        function applyPhoneMask(input) { input.value = formatPhoneBR(input.value); }
         function getSelectedDeliveryFee() {
             const method = document.getElementById('delivery-method')?.value || '';
             return method === 'delivery' ? DELIVERY_FEE : 0;
@@ -981,56 +597,36 @@
 
         function showToast(text) {
             const toast = document.getElementById('toast');
-            const toastText = document.getElementById('toast-text');
-            toastText.textContent = text;
+            document.getElementById('toast-text').textContent = text;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2200);
         }
 
         function showConfirmModal(message, onYes, onNo) {
-            const modal   = document.getElementById('confirm-modal');
-            const msgEl   = document.getElementById('confirm-message');
-            const yesBtn  = document.getElementById('confirm-yes');
-            const noBtn   = document.getElementById('confirm-no');
-
+            const modal  = document.getElementById('confirm-modal');
+            const msgEl  = document.getElementById('confirm-message');
+            const yesBtn = document.getElementById('confirm-yes');
+            const noBtn  = document.getElementById('confirm-no');
             msgEl.textContent = message;
             modal.classList.add('active');
             updateBodyScroll();
-
-            const cleanup = () => {
-                modal.classList.remove('active');
-                updateBodyScroll();
-            };
-
+            const cleanup = () => { modal.classList.remove('active'); updateBodyScroll(); };
             yesBtn.onclick = () => { cleanup(); if (onYes) onYes(); };
             noBtn.onclick  = () => { cleanup(); if (onNo)  onNo();  };
         }
 
-        // ─── VERIFICAÇÃO SE LOJA ESTÁ FECHADA ───────────────────────────────────
-
         function isStoreClosed() {
-            //return { closed: false };
             const now = new Date();
-
-            const dayFormatter = new Intl.DateTimeFormat('en-US', {
-                timeZone: 'America/Sao_Paulo', weekday: 'short'
-            });
+            const dayFormatter = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', weekday: 'short' });
             const dayStr = dayFormatter.format(now);
             const dayMap = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
-            const dow    = dayMap[dayStr];
-
-            const timeFormatter = new Intl.DateTimeFormat('pt-BR', {
-                timeZone: 'America/Sao_Paulo',
-                hour: '2-digit', minute: '2-digit', hour12: false
-            });
-            const parts  = timeFormatter.formatToParts(now);
+            const dow = dayMap[dayStr];
+            const timeFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false });
+            const parts = timeFormatter.formatToParts(now);
             const hour   = parseInt(parts.find(p => p.type === 'hour')?.value   || '0', 10);
             const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
             const totalMin = hour * 60 + minute;
-
-            const OPEN  = 19 * 60;
-            const CLOSE = 23 * 60 + 30;
-
+            const OPEN = 19 * 60, CLOSE = 23 * 60 + 30;
             if (dow === 1) return { closed: true, reason: 'segunda' };
             if (totalMin >= CLOSE) return { closed: true, reason: dow === 0 ? 'domingo-pos' : 'pos-fechamento' };
             if (totalMin < OPEN)  return { closed: true, reason: 'pre-abertura' };
@@ -1040,18 +636,12 @@
         function showClosedModal() {
             const { closed, reason } = isStoreClosed();
             if (!closed) return false;
-
             const nextEl = document.getElementById('closed-modal-next');
             if (nextEl) {
-                if (reason === 'segunda' || reason === 'domingo-pos') {
-                    nextEl.textContent = '📅 Voltamos na Terça às 19:00 🕖';
-                } else if (reason === 'pos-fechamento') {
-                    nextEl.textContent = '📅 Voltamos amanhã às 19:00 🕖';
-                } else {
-                    nextEl.textContent = '🕖 Abriremos hoje às 19:00 BR!';
-                }
+                if (reason === 'segunda' || reason === 'domingo-pos') nextEl.textContent = '📅 Voltamos na Terça às 19:00 🕖';
+                else if (reason === 'pos-fechamento') nextEl.textContent = '📅 Voltamos amanhã às 19:00 🕖';
+                else nextEl.textContent = '🕖 Abriremos hoje às 19:00 BR!';
             }
-
             document.getElementById('closed-modal').style.display = 'flex';
             updateBodyScroll();
             return true;
@@ -1061,8 +651,6 @@
             document.getElementById('closed-modal').style.display = 'none';
             updateBodyScroll();
         }
-
-        // ─── RENDERIZAÇÃO ────────────────────────────────────────────────────────
 
         function renderProducts() {
             const renderGrid = (gridId, items) => {
@@ -1079,26 +667,18 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             card.id = `card-${produto.id}`;
-
-            const unavailableBadge = produto.unavailableForDelivery
-                ? `<span class="badge-unavailable-delivery">⚠️ Indisponível p/ Delivery</span>`
-                : '';
-
+            const unavailableBadge = produto.unavailableForDelivery ? `<span class="badge-unavailable-delivery">⚠️ Indisponível p/ Delivery</span>` : '';
             const precoDisplay = produto.preco > 0
                 ? `<p class="text-2xl font-bold text-orange-500 mb-1">${formatBRL(produto.preco)}</p>`
                 : `<p class="text-xl font-semibold text-yellow-400 mb-1">Consulte o preço</p>`;
-
             card.innerHTML = `
                 <h4 class="text-xl font-bold mb-2 text-white">${produto.nome}</h4>
                 <p class="text-gray-400 mb-3">${produto.descricao}</p>
                 ${precoDisplay}
                 <div class="mb-4">${unavailableBadge}</div>
-                <button
-                    onclick="openAddModal('${produto.id}', '${produto.nome.replace(/'/g,"\\'")}', ${produto.preco}, ${!!produto.unavailableForDelivery})"
-                    class="btn-primary w-full justify-center">
+                <button onclick="openAddModal('${produto.id}', '${produto.nome.replace(/'/g,"\\'")}', ${produto.preco}, ${!!produto.unavailableForDelivery})" class="btn-primary w-full justify-center">
                     <i class="fas fa-plus"></i> Adicionar
-                </button>
-            `;
+                </button>`;
             return card;
         }
 
@@ -1106,52 +686,33 @@
             if (showClosedModal()) return;
             const isCachorroQuente = id.startsWith('dog-');
             currentModalBasePrice = Number(preco || 0);
-
             const currentMethod = document.getElementById('delivery-method')?.value || '';
             if (unavailableForDelivery && currentMethod === 'delivery') {
                 showToast('⚠️ Este item não está disponível para Delivery!');
                 return;
             }
-
             const modal = document.createElement('div');
             modal.id = 'add-modal';
             modal.className = 'modal active';
-
             let adicionaisHTML = '';
             if (isCachorroQuente) {
-                adicionaisHTML = `
-                    <div class="mb-4">
-                        <label class="form-label">Adicionais:</label>
-                        ${adicionais.map(a => `
-                            <label class="flex items-center gap-3 mb-3 cursor-pointer p-2 bg-gray-800 rounded-lg border border-gray-700">
-                                <input type="checkbox" value="${a.id}" class="adicional-checkbox"
-                                       data-nome="${a.nome}" data-preco="${a.preco}"
-                                       onchange="updateModalTotal(${preco})">
-                                <span class="text-white">${a.nome} <span class="text-orange-400 font-bold">(+${formatBRL(a.preco)})</span></span>
-                            </label>
-                        `).join('')}
-                    </div>
-                `;
+                adicionaisHTML = `<div class="mb-4"><label class="form-label">Adicionais:</label>${adicionais.map(a => `
+                    <label class="flex items-center gap-3 mb-3 cursor-pointer p-2 bg-gray-800 rounded-lg border border-gray-700">
+                        <input type="checkbox" value="${a.id}" class="adicional-checkbox" data-nome="${a.nome}" data-preco="${a.preco}" onchange="updateModalTotal(${preco})">
+                        <span class="text-white">${a.nome} <span class="text-orange-400 font-bold">(+${formatBRL(a.preco)})</span></span>
+                    </label>`).join('')}</div>`;
             }
-
             const precoDisplay = preco > 0
                 ? `<p class="modal-price-display">Total: <span id="modal-total">${formatBRL(preco)}</span></p>`
                 : `<p class="text-lg text-yellow-400 mb-4">Preço a consultar</p>`;
-
-            const obsPlaceholder = 'Observação: ex: Sem cebola...';
-
             modal.innerHTML = `
                 <div class="modal-content">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-2xl font-bold text-orange-500">${nome}</h3>
-                        <button onclick="closeAddModal()" class="text-gray-400 hover:text-white text-2xl p-2" aria-label="Fechar">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button onclick="closeAddModal()" class="text-gray-400 hover:text-white text-2xl p-2"><i class="fas fa-times"></i></button>
                     </div>
-
                     ${precoDisplay}
                     ${adicionaisHTML}
-
                     <div class="mb-4">
                         <label class="form-label">Quantidade:</label>
                         <div class="quantity-control mt-2">
@@ -1160,33 +721,28 @@
                             <button onclick="changeModalQuantity(1, ${preco})">+</button>
                         </div>
                     </div>
-
                     <div class="mb-6">
                         <label class="form-label">Observações:</label>
-                        <textarea id="modal-obs" class="form-input" rows="3" placeholder="${obsPlaceholder}"></textarea>
+                        <textarea id="modal-obs" class="form-input" rows="3" placeholder="Observação: ex: Sem cebola..."></textarea>
                     </div>
-
                     <div class="flex gap-3">
-                        <button onclick="addToCart('${id}', '${nome.replace(/'/g,"\\'")}', ${preco}, ${unavailableForDelivery})"
-                                class="btn-primary flex-1 justify-center">
+                        <button onclick="addToCart('${id}', '${nome.replace(/'/g,"\\'")}', ${preco}, ${unavailableForDelivery})" class="btn-primary flex-1 justify-center">
                             <i class="fas fa-check"></i> Adicionar
                         </button>
                         <button onclick="closeAddModal()" class="btn-secondary flex-1 justify-center">
                             <i class="fas fa-times"></i> Cancelar
                         </button>
                     </div>
-                </div>
-            `;
-
+                </div>`;
             document.body.appendChild(modal);
-            updateBodyScroll(); // Trava scroll do body
+            updateBodyScroll();
         }
 
         function closeAddModal() {
             const modal = document.getElementById('add-modal');
             if (modal) modal.remove();
             currentModalBasePrice = 0;
-            updateBodyScroll(); // Restaura scroll do body
+            updateBodyScroll();
         }
 
         function changeModalQuantity(delta, basePreco) {
@@ -1201,71 +757,47 @@
             const totalEl = document.getElementById('modal-total');
             if (!totalEl) return;
             let adicionaisTotal = 0;
-            document.querySelectorAll('.adicional-checkbox:checked').forEach(cb => {
-                adicionaisTotal += Number(cb.dataset.preco || 0);
-            });
+            document.querySelectorAll('.adicional-checkbox:checked').forEach(cb => { adicionaisTotal += Number(cb.dataset.preco || 0); });
             const qty = parseInt(document.getElementById('modal-quantity').textContent, 10);
             totalEl.textContent = formatBRL((currentModalBasePrice + adicionaisTotal) * qty);
         }
 
-        // ─── CARRINHO ────────────────────────────────────────────────────────────
-
         function addToCart(id, nome, preco, unavailableForDelivery) {
-            const qty  = parseInt(document.getElementById('modal-quantity').textContent, 10);
-            const obs  = document.getElementById('modal-obs').value.trim();
+            const qty = parseInt(document.getElementById('modal-quantity').textContent, 10);
+            const obs = document.getElementById('modal-obs').value.trim();
             let adicionaisSelecionados = [];
             let precoAdicionais = 0;
-
             document.querySelectorAll('.adicional-checkbox:checked').forEach(cb => {
                 adicionaisSelecionados.push(cb.dataset.nome);
                 precoAdicionais += Number(cb.dataset.preco || 0);
             });
-
             cart.push({
-                id:                  `${id}_${Date.now()}`,
-                produtoId:           id,
-                nome,
-                preco:               Number(preco) + precoAdicionais,
-                precoBase:           Number(preco),
-                precoAdicionais,
-                quantity:            qty,
-                obs,
-                adicionais:          adicionaisSelecionados,
+                id: `${id}_${Date.now()}`, produtoId: id, nome,
+                preco: Number(preco) + precoAdicionais, precoBase: Number(preco),
+                precoAdicionais, quantity: qty, obs,
+                adicionais: adicionaisSelecionados,
                 unavailableForDelivery: !!unavailableForDelivery
             });
-
             updateCart();
             closeAddModal();
             document.getElementById('cart-button').style.display = 'flex';
-
             showToast(`✅ ${nome} adicionado!`);
-
             const cardEl = document.getElementById(`card-${id}`);
-            if (cardEl) {
-                cardEl.classList.add('added');
-                setTimeout(() => cardEl.classList.remove('added'), 1500);
-            }
+            if (cardEl) { cardEl.classList.add('added'); setTimeout(() => cardEl.classList.remove('added'), 1500); }
         }
 
         function updateCart() {
             saveCart();
-
             const count    = cart.reduce((s, i) => s + Number(i.quantity || 0), 0);
             const subtotal = cart.reduce((s, i) => s + (Number(i.preco) * Number(i.quantity)), 0);
             const fee      = getSelectedDeliveryFee();
             const total    = subtotal + fee;
-
-            document.getElementById('cart-count').textContent    = count;
+            document.getElementById('cart-count').textContent = count;
             document.getElementById('cart-subtotal').textContent = formatBRL(subtotal);
             document.getElementById('cart-delivery-fee').textContent = formatBRL(fee);
-            document.getElementById('cart-total').textContent    = formatBRL(total);
-
+            document.getElementById('cart-total').textContent = formatBRL(total);
             const cartItems = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="text-center text-gray-400 py-4">Carrinho vazio</p>';
-                return;
-            }
-
+            if (cart.length === 0) { cartItems.innerHTML = '<p class="text-center text-gray-400 py-4">Carrinho vazio</p>'; return; }
             cartItems.innerHTML = cart.map((item, index) => {
                 let adicionaisHTML = '';
                 if (item.adicionais?.length) {
@@ -1274,45 +806,29 @@
                         return `<p class="text-yellow-400 text-sm">+ ${n}${ad ? ': ' + formatBRL(ad.preco) : ''}</p>`;
                     }).join('');
                 }
-
                 const deliveryMethod = document.getElementById('delivery-method')?.value || '';
                 const deliveryWarning = (item.unavailableForDelivery && deliveryMethod === 'delivery')
-                    ? `<p class="text-red-400 text-xs font-bold mt-1">⚠️ Indisponível p/ Delivery — altere a entrega ou remova</p>`
-                    : '';
-
-                return `
-                    <div class="bg-gray-800 p-4 rounded-lg mb-3">
-                        <div class="flex justify-between items-start gap-3">
-                            <div class="flex-1">
-                                <h4 class="font-bold text-white">${item.nome}</h4>
-                                <p class="text-gray-400 text-sm">${formatBRL(item.precoBase)} (base)</p>
-                                ${adicionaisHTML}
-                                ${item.preco > 0
-                                    ? `<p class="text-sm font-semibold text-orange-400 mt-1">
-                                           Total: ${formatBRL(item.preco * item.quantity)} (${item.quantity}x ${formatBRL(item.preco)})
-                                       </p>`
-                                    : `<p class="text-sm text-yellow-400">Preço a consultar</p>`
-                                }
-                                ${item.obs ? `<p class="text-xs text-gray-500 mt-1">💬 ${item.obs}</p>` : ''}
-                                ${deliveryWarning}
-                            </div>
-                            <button onclick="removeFromCart(${index})"
-                                    class="text-red-500 hover:text-red-400 mt-1 p-2"
-                                    aria-label="Remover ${item.nome} do carrinho">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                    ? `<p class="text-red-400 text-xs font-bold mt-1">⚠️ Indisponível p/ Delivery — altere a entrega ou remova</p>` : '';
+                return `<div class="bg-gray-800 p-4 rounded-lg mb-3">
+                    <div class="flex justify-between items-start gap-3">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white">${item.nome}</h4>
+                            <p class="text-gray-400 text-sm">${formatBRL(item.precoBase)} (base)</p>
+                            ${adicionaisHTML}
+                            ${item.preco > 0 ? `<p class="text-sm font-semibold text-orange-400 mt-1">Total: ${formatBRL(item.preco * item.quantity)} (${item.quantity}x ${formatBRL(item.preco)})</p>` : `<p class="text-sm text-yellow-400">Preço a consultar</p>`}
+                            ${item.obs ? `<p class="text-xs text-gray-500 mt-1">💬 ${item.obs}</p>` : ''}
+                            ${deliveryWarning}
                         </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-400 mt-1 p-2"><i class="fas fa-trash"></i></button>
                     </div>
-                `;
+                </div>`;
             }).join('');
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
-            if (cart.length === 0) {
-                document.getElementById('cart-button').style.display = 'none';
-            }
+            if (cart.length === 0) document.getElementById('cart-button').style.display = 'none';
         }
 
         function clearCart() {
@@ -1320,7 +836,6 @@
                 cart = [];
                 updateCart();
                 document.getElementById('cart-button').style.display = 'none';
-                
                 const cartModal = document.getElementById('cart-modal');
                 if (cartModal.classList.contains('active')) toggleCart();
             });
@@ -1329,20 +844,19 @@
         function toggleCart() {
             document.getElementById('cart-modal').classList.toggle('active');
             updateCart();
-            updateBodyScroll(); // Gerencia scroll mobile
+            updateBodyScroll();
         }
 
         function toggleDeliveryFields() {
-            const method        = document.getElementById('delivery-method').value;
-            const commonFields  = document.getElementById('common-fields');
-            const deliveryFields= document.getElementById('delivery-fields');
-
+            const method = document.getElementById('delivery-method').value;
+            const commonFields   = document.getElementById('common-fields');
+            const deliveryFields = document.getElementById('delivery-fields');
             if (method === 'delivery' || method === 'retirada') {
-                commonFields.style.display  = 'block';
+                commonFields.style.display   = 'block';
                 deliveryFields.style.display = method === 'delivery' ? 'block' : 'none';
                 loadCustomerData();
             } else {
-                commonFields.style.display  = 'none';
+                commonFields.style.display   = 'none';
                 deliveryFields.style.display = 'none';
                 document.getElementById('payment-method').value = '';
                 document.getElementById('troco-value').value    = '';
@@ -1362,64 +876,42 @@
             return a ? Number(a.preco) : 0;
         }
 
-        // ─── ENVIO DO PEDIDO ────────────────────────────────────────────────────
-
-        function sendOrder() {
+        // ── PATCH: sendOrder com integração API ──
+        async function sendOrder() {
             const method = document.getElementById('delivery-method')?.value || '';
             if (!method) { alert('Por favor, selecione a forma de entrega!'); return; }
-
             const name    = document.getElementById('customer-name')?.value.trim()  || '';
             const phone   = document.getElementById('customer-phone')?.value.trim() || '';
             const payment = document.getElementById('payment-method')?.value        || '';
-
-            if (!name)  { alert('Por favor, informe seu nome!');      return; }
-            if (!phone) { alert('Por favor, informe seu telefone!');   return; }
-            if (normalizePhoneDigits(phone).length !== 11) {
-                alert('Telefone inválido. Use o padrão (00) 00000-0000');
-                return;
-            }
-
+            if (!name)  { alert('Por favor, informe seu nome!');    return; }
+            if (!phone) { alert('Por favor, informe seu telefone!'); return; }
+            if (normalizePhoneDigits(phone).length !== 11) { alert('Telefone inválido. Use o padrão (00) 00000-0000'); return; }
             if (method === 'delivery') {
                 const address = document.getElementById('delivery-address')?.value.trim() || '';
                 if (!address) { alert('Por favor, informe o endereço para entrega!'); return; }
             }
-
             if (!payment) { alert('Por favor, selecione a forma de pagamento!'); return; }
-
             if (payment === 'dinheiro') {
                 const troco = document.getElementById('troco-value')?.value.trim() || '';
                 if (!troco) { alert('Por favor, informe se precisa de troco!'); return; }
             }
-
             if (cart.length === 0) { alert('Seu carrinho está vazio!'); return; }
-
             if (method === 'delivery') {
                 const hasUnavailable = cart.some(i => i.unavailableForDelivery);
-                if (hasUnavailable) {
-                    alert('Seu carrinho tem itens indisponíveis para Delivery. Remova-os ou altere a forma de entrega.');
-                    return;
-                }
+                if (hasUnavailable) { alert('Seu carrinho tem itens indisponíveis para Delivery. Remova-os ou altere a forma de entrega.'); return; }
             }
 
-            let msg = '*PEDIDO — SIMPLÊ SABOR* 🍟\n\n';
-            msg += 'Olá! Gostaria de fazer um pedido:\n\n';
-            msg += '====================================\n\n';
-
+            let msg = '*PEDIDO — SIMPLÊ SABOR* 🍟\n\nOlá! Gostaria de fazer um pedido:\n\n====================================\n\n';
             cart.forEach((item, i) => {
-                const qty          = Number(item.quantity || 1);
-                const precoBase    = Number(item.precoBase || item.preco || 0);
-                const precoUnit    = Number(item.preco || 0);
-                const totalItem    = precoUnit * qty;
+                const qty = Number(item.quantity || 1);
+                const precoBase = Number(item.precoBase || item.preco || 0);
+                const precoUnit = Number(item.preco || 0);
+                const totalItem = precoUnit * qty;
                 const temAdicionais = Array.isArray(item.adicionais) && item.adicionais.length > 0;
-
                 msg += `${i + 1}. *${item.nome}*\n`;
-
                 if (temAdicionais) {
                     msg += `   Qtd: ${qty} x ${formatMoneyDot(precoBase)}\n`;
-                    item.adicionais.forEach(n => {
-                        const p = getAdicionalPrecoByNome(n);
-                        msg += `   +Adicionais: ${n}${p > 0 ? ' ' + formatMoneyDot(p) : ''}\n`;
-                    });
+                    item.adicionais.forEach(n => { const p = getAdicionalPrecoByNome(n); msg += `   +Adicionais: ${n}${p > 0 ? ' ' + formatMoneyDot(p) : ''}\n`; });
                     if (item.obs) msg += `   Obs: ${item.obs}\n`;
                     msg += `   Subtotal: ${formatMoneyDot(totalItem)}\n\n`;
                 } else {
@@ -1429,58 +921,85 @@
                 }
             });
 
-            msg += '====================================\n\n';
-
             const subtotal = cart.reduce((s, i) => s + (Number(i.preco) * Number(i.quantity)), 0);
             const fee      = method === 'delivery' ? DELIVERY_FEE : 0;
             const total    = subtotal + fee;
             const hasConsulta = cart.some(i => Number(i.preco) === 0);
-
-            msg += '*RESUMO*\n';
-            msg += `Subtotal: ${formatMoneyDot(subtotal)}\n`;
-            msg += `Taxa de entrega: ${formatMoneyDot(fee)}\n`;
-            msg += hasConsulta
-                ? `*TOTAL:* ${formatMoneyDot(total)} + itens a consultar\n\n`
-                : `*TOTAL:* ${formatMoneyDot(total)}\n\n`;
-
             const deliveryLabels = { retirada: 'Retirada no Local', delivery: 'Delivery' };
             const paymentLabels  = { pix: 'PIX', cartao: 'Cartão', dinheiro: 'Dinheiro' };
 
-            msg += `*ENTREGA:* ${deliveryLabels[method]}\n`;
-            msg += `*NOME:* ${name}\n`;
-            msg += `*TELEFONE:* ${phone}\n`;
-
+            msg += '====================================\n\n*RESUMO*\n';
+            msg += `Subtotal: ${formatMoneyDot(subtotal)}\nTaxa de entrega: ${formatMoneyDot(fee)}\n`;
+            msg += hasConsulta ? `*TOTAL:* ${formatMoneyDot(total)} + itens a consultar\n\n` : `*TOTAL:* ${formatMoneyDot(total)}\n\n`;
+            msg += `*ENTREGA:* ${deliveryLabels[method]}\n*NOME:* ${name}\n*TELEFONE:* ${phone}\n`;
             if (method === 'delivery') {
                 const address = document.getElementById('delivery-address')?.value.trim() || '';
                 msg += `*ENDEREÇO:* ${address}\n`;
             } else {
                 msg += `*RETIRAR EM:* Rua Cassilândia, 1068, Chapadão do Sul, MS\n`;
             }
-
             msg += `*PAGAMENTO:* ${paymentLabels[payment] || payment}\n`;
-
             if (payment === 'dinheiro') {
                 const troco = document.getElementById('troco-value')?.value.trim() || '';
                 msg += `*TROCO PARA:* ${troco}\n`;
             }
-
-            msg += '\n====================================\n';
-            msg += '⏰ Terça a Domingo, 19:00 às 23:30 (horário de Brasília)\n';
-            msg += '📍 Rua Cassilândia, 1068 — Chapadão do Sul, MS';
+            msg += '\n====================================\n⏰ Terça a Domingo, 19:00 às 23:30 (horário de Brasília)\n📍 Rua Cassilândia, 1068 — Chapadão do Sul, MS';
 
             saveCustomerData();
 
+            // Abre WhatsApp ANTES do await (evita bloqueio do navegador mobile)
             window.open(`https://wa.me/5567999496825?text=${encodeURIComponent(msg)}`, '_blank');
 
+            // Envia para o sistema se online
+            let sistemaOk = false;
+            if (sistemaOnline) {
+                try {
+                    const apiPayload = {
+                        api_key:         SISTEMA_API_KEY,
+                        name, phone,
+                        delivery_method: method,
+                        address:         method === 'delivery' ? (document.getElementById('delivery-address')?.value.trim() || '') : '',
+                        delivery_fee:    method === 'delivery' ? DELIVERY_FEE : 0,
+                        payment,
+                        change_for:      payment === 'dinheiro' ? (document.getElementById('troco-value')?.value.trim() || '') : '',
+                        items: cart.map(item => ({
+                            nome:       item.nome,
+                            preco_base: item.precoBase || item.preco,
+                            preco:      item.preco,
+                            qty:        item.quantity,
+                            obs:        item.obs || '',
+                            adicionais: (item.adicionais || []).map(nomeAd => {
+                                const ad = adicionais.find(a => a.nome === nomeAd);
+                                return { nome: nomeAd, preco: ad ? ad.preco : 0 };
+                            }),
+                        })),
+                    };
+                    const resp = await fetch(`${SISTEMA_API_URL}/pedido_externo`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': '1' },
+                        body: JSON.stringify(apiPayload),
+                        signal: AbortSignal.timeout(8000)
+                    });
+                    if (resp.ok) {
+                        const data = await resp.json();
+                        sistemaOk = true;
+                        console.log(`Pedido #${data.number} registrado no sistema.`);
+                    }
+                } catch(e) {
+                    console.warn('Sistema offline, usando WhatsApp como fallback.', e);
+                }
+            }
+
             setTimeout(() => {
-                showConfirmModal('Pedido enviado com sucesso! Deseja limpar o carrinho?', () => {
+                const confirmMsg = sistemaOk
+                    ? 'Pedido registrado no sistema! WhatsApp aberto para confirmação. Deseja limpar o carrinho?'
+                    : 'Pedido enviado pelo WhatsApp! Aguarde confirmação. Deseja limpar o carrinho?';
+                showConfirmModal(confirmMsg, () => {
                     cart = [];
                     updateCart();
                     document.getElementById('cart-button').style.display = 'none';
-
                     const cartModal = document.getElementById('cart-modal');
                     if (cartModal.classList.contains('active')) toggleCart();
-
                     const methodSelect = document.getElementById('delivery-method');
                     if (methodSelect) methodSelect.value = '';
                     toggleDeliveryFields();
@@ -1489,84 +1008,53 @@
             }, 800);
         }
 
-        // ─── STATUS DE HORÁRIO ────────────────────────
-
         function updateStatusBadge() {
             const heroEl   = document.getElementById('status-badge');
             const headerEl = document.getElementById('header-status-badge');
-            const now      = new Date();
-
-            const dayFormatter = new Intl.DateTimeFormat('en-US', {
-                timeZone: 'America/Sao_Paulo', weekday: 'short'
-            });
+            const now = new Date();
+            const dayFormatter = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', weekday: 'short' });
             const dayStr = dayFormatter.format(now);
             const dayMap = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
-            const dow    = dayMap[dayStr];
-
-            const timeFormatter = new Intl.DateTimeFormat('pt-BR', {
-                timeZone: 'America/Sao_Paulo',
-                hour: '2-digit', minute: '2-digit', hour12: false
-            });
-            const parts  = timeFormatter.formatToParts(now);
+            const dow = dayMap[dayStr];
+            const timeFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false });
+            const parts = timeFormatter.formatToParts(now);
             const hour   = parseInt(parts.find(p => p.type === 'hour')?.value   || '0', 10);
             const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
             const totalMin = hour * 60 + minute;
-
-            const OPEN  = 19 * 60;
-            const CLOSE = 23 * 60 + 30;
-
+            const OPEN = 19 * 60, CLOSE = 23 * 60 + 30;
             const isClosed = dow === 1;
             const isSundayAfterClose = (dow === 0 && totalMin >= CLOSE);
             const isOpen = !isClosed && !isSundayAfterClose && totalMin >= OPEN && totalMin < CLOSE;
             const opensSoon = !isClosed && !isSundayAfterClose && totalMin < OPEN;
-
-            let heroText   = '';
-            let badgeClass = 'badge-highlight ';
-
-            if (isOpen) {
-                badgeClass += 'badge-open';
-                heroText    = '🟢 Aberto — fecha às 23:30 BR';
-            } else if (opensSoon) {
-                badgeClass += 'badge-opens-soon';
-                heroText    = '🟡 Abre às 19:00 BR';
-            } else {
+            let heroText = '', badgeClass = 'badge-highlight ';
+            if (isOpen) { badgeClass += 'badge-open'; heroText = '🟢 Aberto — fecha às 23:30 BR'; }
+            else if (opensSoon) { badgeClass += 'badge-opens-soon'; heroText = '🟡 Abre às 19:00 BR'; }
+            else {
                 badgeClass += 'badge-closed';
-                if (dow === 1 || isSundayAfterClose) {
-                    heroText = '🔴 Hoje é folga. Abrimos terça às 19:00, horário de Brasília.';
-                } else {
-                    heroText = '🔴 Fechado — voltamos amanhã às 19:00 BR';
-                }
+                heroText = (dow === 1 || isSundayAfterClose)
+                    ? '🔴 Hoje é folga. Abrimos terça às 19:00, horário de Brasília.'
+                    : '🔴 Fechado — voltamos amanhã às 19:00 BR';
             }
-
-            if (heroEl) {
-                heroEl.className   = badgeClass;
-                heroEl.innerHTML   = heroText;
-            }
-            if (headerEl) {
-                headerEl.className = isOpen ? 'badge-highlight badge-open' : 'badge-highlight badge-closed';
-                headerEl.innerHTML = isOpen ? '🟢 ABERTO' : '🔴 FECHADO';
-            }
+            if (heroEl)   { heroEl.className = badgeClass; heroEl.innerHTML = heroText; }
+            if (headerEl) { headerEl.className = isOpen ? 'badge-highlight badge-open' : 'badge-highlight badge-closed'; headerEl.innerHTML = isOpen ? '🟢 ABERTO' : '🔴 FECHADO'; }
         }
-
-        // ─── INICIALIZAÇÃO ───────────────────────────────────────────────────────
 
         document.addEventListener('DOMContentLoaded', () => {
             loadCart();
             renderProducts();
             updateCart();
             updateStatusBadge();
-
-            if (cart.length > 0) {
-                document.getElementById('cart-button').style.display = 'flex';
-            }
-
+            if (cart.length > 0) document.getElementById('cart-button').style.display = 'flex';
             const phoneInput = document.getElementById('customer-phone');
             if (phoneInput) {
                 phoneInput.addEventListener('input', e => applyPhoneMask(e.target));
                 phoneInput.addEventListener('blur',  e => applyPhoneMask(e.target));
             }
-
             setInterval(updateStatusBadge, 60000);
+
+            // PATCH: Verifica sistema online
+            checkSistemaOnline();
+            setInterval(checkSistemaOnline, 30000);
         });
     </script>
 
