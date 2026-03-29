@@ -1009,7 +1009,7 @@
         function isStoreClosed() {
             // 👇 CHAVE DE TESTE ATIVADA: A loja será mostrada como FECHADA.
             // Para voltar ao normal, adicione // no início desta linha abaixo:
-            return { closed: true, reason: 'pos-fechamento' };
+            return { closed: true, reason: 'excecao-terca' };
 
             const now = new Date();
 
@@ -1046,6 +1046,8 @@
             if (nextEl) {
                 if (reason === 'segunda' || reason === 'domingo-pos') {
                     nextEl.textContent = '📅 Voltamos na Terça às 19:00 🕖';
+                } else if (reason === 'excecao-terca') {
+                    nextEl.textContent = '📅 Voltamos na Terça com a programação normal 🕖';
                 } else if (reason === 'pos-fechamento') {
                     nextEl.textContent = '📅 Voltamos amanhã às 19:00 🕖';
                 } else {
@@ -1515,12 +1517,16 @@
                     heroText    = '🟡 Abre às 19:00 BR';
                 } else {
                     badgeClass += 'badge-closed';
-                    if (storeStatus.reason === 'segunda' || storeStatus.reason === 'domingo-pos') {
+                    // Atualização da frase de exceção/fechamento
+                    if (storeStatus.reason === 'excecao-terca') {
+                        heroText = '🔴 Fechado — voltamos na Terça com a programação normal';
+                    } else if (storeStatus.reason === 'segunda' || storeStatus.reason === 'domingo-pos') {
                         heroText = '🔴 Fechado — abriremos Terça às 19:00 BR';
                     } else {
                         heroText = '🔴 Fechado — voltamos amanhã às 19:00 BR';
                     }
                 }
+                
                 if (headerEl) {
                     headerEl.className = 'badge-highlight badge-closed';
                     headerEl.innerHTML = '🔴 FECHADO';
