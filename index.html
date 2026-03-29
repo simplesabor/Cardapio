@@ -858,7 +858,6 @@
     <script>
         const DELIVERY_FEE = 7.00;
 
-        // BANCO DE DADOS ATUALIZADO (100% IGUAL AO CARDÁPIO FÍSICO)
         const adicionais = [
             { id: 'salsicha',  nome: 'Salsicha',  preco: 2.00 },
             { id: 'salada',    nome: 'Salada',    preco: 2.00 },
@@ -1008,8 +1007,9 @@
         // ─── VERIFICAÇÃO SE LOJA ESTÁ FECHADA ───────────────────────────────────
 
         function isStoreClosed() {
-            // 👇 CHAVE DE TESTE: Para forçar a loja a aparecer FECHADA, apague as duas barras (//) abaixo:
-             return { closed: true, reason: 'pos-fechamento' };
+            // 👇 CHAVE DE TESTE ATIVADA: A loja será mostrada como FECHADA.
+            // Para voltar ao normal, adicione // no início desta linha abaixo:
+            return { closed: true, reason: 'pos-fechamento' };
 
             const now = new Date();
 
@@ -1495,57 +1495,41 @@
         function updateStatusBadge() {
             const heroEl   = document.getElementById('status-badge');
             const headerEl = document.getElementById('header-status-badge');
-            const now      = new Date();
-
-            const dayFormatter = new Intl.DateTimeFormat('en-US', {
-                timeZone: 'America/Sao_Paulo', weekday: 'short'
-            });
-            const dayStr = dayFormatter.format(now);
-            const dayMap = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
-            const dow    = dayMap[dayStr];
-
-            const timeFormatter = new Intl.DateTimeFormat('pt-BR', {
-                timeZone: 'America/Sao_Paulo',
-                hour: '2-digit', minute: '2-digit', hour12: false
-            });
-            const parts  = timeFormatter.formatToParts(now);
-            const hour   = parseInt(parts.find(p => p.type === 'hour')?.value   || '0', 10);
-            const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
-            const totalMin = hour * 60 + minute;
-
-            const OPEN  = 19 * 60;
-            const CLOSE = 23 * 60 + 30;
-
-            const isClosed = dow === 1;
-            const isSundayAfterClose = (dow === 0 && totalMin >= CLOSE);
-            const isOpen = !isClosed && !isSundayAfterClose && totalMin >= OPEN && totalMin < CLOSE;
-            const opensSoon = !isClosed && !isSundayAfterClose && totalMin < OPEN;
+            
+            // Pergunta à função isStoreClosed se a loja está fechada ou em teste
+            const storeStatus = isStoreClosed();
 
             let heroText   = '';
             let badgeClass = 'badge-highlight ';
 
-            if (isOpen) {
+            if (!storeStatus.closed) {
                 badgeClass += 'badge-open';
                 heroText    = '🟢 Aberto — fecha às 23:30 BR';
-            } else if (opensSoon) {
-                badgeClass += 'badge-opens-soon';
-                heroText    = '🟡 Abre às 19:00 BR';
+                if (headerEl) {
+                    headerEl.className = 'badge-highlight badge-open';
+                    headerEl.innerHTML = '🟢 ABERTO';
+                }
             } else {
-                badgeClass += 'badge-closed';
-                if (dow === 1 || isSundayAfterClose) {
-                    heroText = '🔴 Fechado — abriremos Terça às 19:00 BR';
+                if (storeStatus.reason === 'pre-abertura') {
+                    badgeClass += 'badge-opens-soon';
+                    heroText    = '🟡 Abre às 19:00 BR';
                 } else {
-                    heroText = '🔴 Fechado — voltamos amanhã às 19:00 BR';
+                    badgeClass += 'badge-closed';
+                    if (storeStatus.reason === 'segunda' || storeStatus.reason === 'domingo-pos') {
+                        heroText = '🔴 Fechado — abriremos Terça às 19:00 BR';
+                    } else {
+                        heroText = '🔴 Fechado — voltamos amanhã às 19:00 BR';
+                    }
+                }
+                if (headerEl) {
+                    headerEl.className = 'badge-highlight badge-closed';
+                    headerEl.innerHTML = '🔴 FECHADO';
                 }
             }
 
             if (heroEl) {
                 heroEl.className   = badgeClass;
                 heroEl.innerHTML   = heroText;
-            }
-            if (headerEl) {
-                headerEl.className = isOpen ? 'badge-highlight badge-open' : 'badge-highlight badge-closed';
-                headerEl.innerHTML = isOpen ? '🟢 ABERTO' : '🔴 FECHADO';
             }
         }
 
