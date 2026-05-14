@@ -1284,7 +1284,7 @@
     }
 
     function isStoreClosed(){
-      // return { closed: true, reason: "pos-fechamento" }; //
+      return { closed: true, reason: "pos-fechamento" }; //
       const now = new Date();
 
       const dayFormatter = new Intl.DateTimeFormat("en-US", { timeZone: "America/Sao_Paulo", weekday: "short" });
